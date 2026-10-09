@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>לגעת במשכן - פעילות של לימוד חוויתי</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Assistant', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1a365d',
+                        gold: '#d4af37',
+                        goldLight: '#e6c762',
+                        bgLight: '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #1a365d; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #d4af37; }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-bgLight antialiased selection:bg-gold selection:text-primary">
+
+    <nav class="fixed w-full bg-white shadow-md z-50 top-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo / Title -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home" class="text-2xl font-bold text-primary hover:text-gold transition-colors flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                        לגעת במשכן
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-1 space-x-reverse">
+                    <a href="#home" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">דף הבית</a>
+                    <a href="#vision" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">מראה עיניים</a>
+                    <a href="#model" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">דגם המשכן</a>
+                    <a href="#activity" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">תוכן הפעילות</a>
+                    <a href="#explanation" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">הסבר נלווה</a>
+                    <a href="#operation" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">פעילות המשכן</a>
+                    <a href="#gallery" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">תמונות</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">המלצות</a>
+                    <a href="#contact" class="bg-primary text-white hover:bg-gold px-4 py-2 rounded-md text-sm font-semibold transition-colors mr-2">צור קשר</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-primary hover:text-gold focus:outline-none p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">דף הבית</a>
+                <a href="#vision" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">מראה עיניים</a>
+                <a href="#model" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">דגם המשכן</a>
+                <a href="#activity" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">תוכן הפעילות</a>
+                <a href="#explanation" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">הסבר נלווה</a>
+                <a href="#operation" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">פעילות המשכן</a>
+                <a href="#gallery" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">תמונות</a>
+                <a href="#testimonials" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">המלצות</a>
+                <a href="#contact" class="block text-primary font-bold hover:bg-gray-50 px-3 py-2 rounded-md text-base">צור קשר</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden scroll-mt-20 flex items-center min-h-[80vh]">
+        <div class="absolute inset-0 bg-primary z-0">
+            <!-- Background pattern placeholder -->
+            <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'
