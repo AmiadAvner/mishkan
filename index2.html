@@ -65,6 +65,7 @@
                     <a href="#explanation" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">הסבר נלווה</a>
                     <a href="#operation" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">פעילות המשכן</a>
                     <a href="#testimonials" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">המלצות</a>
+                    <a onclick="openPrivacyModal()" class="cursor-pointer text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">מדיניות פרטיות</a>
                     <a href="#contact" class="bg-primary text-white hover:bg-gold px-4 py-2 rounded-md text-sm font-semibold transition-colors mr-2">צור קשר</a>
                 </div>
 
@@ -89,6 +90,7 @@
                 <a href="#explanation" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">הסבר נלווה</a>
                 <a href="#operation" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">פעילות המשכן</a>
                 <a href="#testimonials" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">המלצות</a>
+                <a onclick="openPrivacyModal()" class="cursor-pointer block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">מדיניות פרטיות</a>
                 <a href="#contact" class="block text-primary font-bold hover:bg-gray-50 px-3 py-2 rounded-md text-base">צור קשר</a>
             </div>
         </div>
@@ -96,7 +98,7 @@
 
     <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden scroll-mt-20 flex items-center min-h-[80vh]">
         <div class="absolute inset-0 bg-primary z-0">
-            <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23d4af37\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+            <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23d4af37\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-white drop-shadow-md">
@@ -133,24 +135,21 @@
                     </div>
                 </div>
                 
-              <div class="mt-10 lg:mt-0 relative rounded-xl shadow-2xl border-4 border-gray-100 overflow-hidden">
-                    <!-- שקופית 1 -->
+                <div class="mt-10 lg:mt-0 relative rounded-xl shadow-2xl border-4 border-gray-100 overflow-hidden w-11/12 md:w-5/6 lg:w-10/12 mx-auto aspect-[4/3] bg-gray-50 flex items-center justify-center">
                     <img id="vision-slide-1" 
                          src="mishkan_building.gif" 
                          alt="ילדים מרכיבים את המשכן" 
-                         class="w-full object-cover transition-opacity duration-1000 opacity-100">
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
 
-                    <!-- שקופית 2 -->
                     <img id="vision-slide-2" 
                          src="mishkan_model.gif" 
                          alt="דגם המשכן מורכב" 
-                         class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
 
-                    <!-- שקופית 3 -->
                     <img id="vision-slide-3" 
                          src="mizbeach_with_ramp_hq.gif" 
                          alt="מזבח הנחושת עם כבש" 
-                         class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                 </div>
                 
             </div>
@@ -168,7 +167,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Sub-section 1: Model properties -->
                 <div class="bg-white rounded-xl shadow-md p-8 border-t-4 border-primary hover:shadow-xl transition-shadow">
                     <h3 class="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
@@ -187,7 +185,6 @@
                     <p class="mt-2 text-gray-600 border-t pt-2">הדגם עשוי עץ וצבוע זהב, הדגם נבנה על גבי משטח עם גלגלים כך שניתן לסובב ולהראות את הדגם מכל צדדיו.</p>
                 </div>
 
-                <!-- Sub-section 2: Notes -->
                 <div class="bg-white rounded-xl shadow-md p-8 border-t-4 border-gold hover:shadow-xl transition-shadow">
                     <h3 class="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -201,7 +198,6 @@
                     </ul>
                 </div>
 
-                <!-- Sub-section 3: Board Structure -->
                 <div class="bg-white rounded-xl shadow-md p-8 border-t-4 border-primary hover:shadow-xl transition-shadow">
                     <h3 class="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
@@ -380,17 +376,24 @@
                     </ul>
                 </div>
 
+                <!-- החלק שעודכן: מספר משתתפים -->
                 <div class="bg-white rounded-2xl p-8 shadow-lg text-center border-b-4 border-primary">
                     <div class="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                     </div>
                     <h3 class="text-xl font-bold text-primary mb-4">מספר משתתפים</h3>
                     <div class="text-gray-600 text-right space-y-3">
-                        <p>במשכן 48 קרשים.</p>
-                        <p>בהרכבת דגם המשכן, אנחנו מעמידים קרשים ראשונים והילדים מוסיפים 45 קרשים.</p>
-                        <p class="italic bg-gray-50 p-2 rounded text-sm border-r-2 border-gray-300">בכדי לאפשר לכל ילד לשים את הקרש שלו... <br> <span class="text-xs text-gray-400">(ניתן להוסיף פרטים נוספים בתיאום)</span></p>
+                        <p>במשכן 48 קרשים. בהרכבת דגם המשכן, אנחנו מעמידים קרשים ראשונים והילדים מוסיפים 45 קרשים. בכדי לאפשר לכל ילד לשים את הקרש שלו במשכן, <strong class="text-primary font-bold">רצוי שבפעילות ישתתפו עד 45 ילדים.</strong></p>
+                        <p>כשיש הרבה משתתפים כדאי להתפצל לשתי קבוצות, שיעברו שתי פעילויות.</p>
+                        
+                        <div class="bg-gray-50 p-3 rounded-lg border-r-4 border-gold text-sm space-y-2 mt-4 text-right">
+                            <p><strong class="text-primary font-bold">משך הפעילות:</strong> לפחות שעה (בהתאם לקצב הבנייה והתעניינות הילדים), רצוי להקצות שני שיעורים רצופים כדי לא לדלג על נושאים חשובים.</p>
+                            <p><strong class="text-primary font-bold">מקום הפעילות:</strong> צריך להשאיר רחבה של 3x3 מטרים להרכבת הדגם, וכדי שנוכל לסובב אותו במהלך ההדגמה.</p>
+                        </div>
                     </div>
                 </div>
+                <!-- סוף החלק שעודכן -->
+
             </div>
         </div>
     </section>
@@ -481,7 +484,6 @@
                 <p class="text-gray-300 text-sm">
                     © כל הזכויות שמורות ללגעת במשכן - פעילות של לימוד חוויתי.
                 </p>
-                <!-- כפתור פתיחת מדיניות פרטיות -->
                 <button type="button" onclick="openPrivacyModal()" class="text-gray-400 hover:text-gold text-sm transition-colors cursor-pointer bg-transparent border-none p-0 underline decoration-gray-500 hover:decoration-gold">
                     מדיניות פרטיות
                 </button>
@@ -493,14 +495,12 @@
     <div id="privacy-modal" class="hidden fixed inset-0 z-[100] overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             
-            <!-- רקע כהה, לחיצה עליו תסגור את החלון -->
             <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity backdrop-blur-sm" aria-hidden="true" onclick="closePrivacyModal()"></div>
 
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
             
             <div class="inline-block align-bottom bg-white rounded-2xl text-right overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full border-t-4 border-gold relative">
                 
-                <!-- כפתור סגירה (X) למעלה -->
                 <button type="button" onclick="closePrivacyModal()" class="absolute top-4 left-4 text-gray-400 hover:text-gray-600 focus:outline-none">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -510,7 +510,6 @@
                 <div class="bg-white px-4 pt-8 pb-4 sm:p-8 sm:pb-6">
                     <h3 class="text-2xl leading-6 font-bold text-primary mb-6 text-center" id="modal-title">מדיניות פרטיות</h3>
                     
-                    <!-- תוכן מדיניות הפרטיות -->
                     <div class="mt-2 text-gray-700 text-sm h-[60vh] overflow-y-auto pl-4 modal-scrollbar space-y-5 leading-relaxed">
                         
                         <p><strong>עודכן לאחרונה:</strong> אוקטובר 2026</p>
@@ -568,15 +567,14 @@
     </div>
 
     <script>
-        // פונקציות פתיחה וסגירה של חלון מדיניות הפרטיות
         function openPrivacyModal() {
             document.getElementById('privacy-modal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // מונע גלילה של הדף האחורי
+            document.body.style.overflow = 'hidden';
         }
 
         function closePrivacyModal() {
             document.getElementById('privacy-modal').classList.add('hidden');
-            document.body.style.overflow = 'auto'; // מחזיר גלילה לדף האחורי
+            document.body.style.overflow = 'auto';
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -584,42 +582,32 @@
             const menu = document.getElementById('mobile-menu');
             const links = menu.querySelectorAll('a');
 
-            // Toggle mobile menu
             btn.addEventListener('click', () => {
                 menu.classList.toggle('hidden');
             });
 
-            // Close mobile menu when a link is clicked
             links.forEach(link => {
                 link.addEventListener('click', () => {
                     menu.classList.add('hidden');
                 });
             });
 
-            // תחילת הקוד שמחליף בין התמונות באפקט
             const slides = [
                 document.getElementById('vision-slide-1'),
                 document.getElementById('vision-slide-2'),
                 document.getElementById('vision-slide-3')
-            ].filter(Boolean); // מוודא שהאלמנטים אכן קיימים
+            ].filter(Boolean);
 
             if (slides.length > 0) {
                 let currentSlide = 0;
                 
                 setInterval(() => {
-                    // הסתר את התמונה הנוכחית
                     slides[currentSlide].classList.replace('opacity-100', 'opacity-0');
-                    
-                    // קדם את האינדקס לתמונה הבאה (וחזור להתחלה אם הגענו לסוף)
                     currentSlide = (currentSlide + 1) % slides.length;
-                    
-                    // הצג את התמונה החדשה
                     slides[currentSlide].classList.replace('opacity-0', 'opacity-100');
-                }, 3000); // מתחלף כל 3 שניות
+                }, 3000); 
             }
-            // סוף קוד אפקט התמונות
             
-            // סגירת המודל בלחיצה על מקש Escape
             document.addEventListener('keydown', function(event) {
                 if (event.key === "Escape") {
                     closePrivacyModal();
