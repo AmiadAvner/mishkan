@@ -33,6 +33,12 @@
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #1a365d; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #d4af37; }
+        
+        /* Modal scrollbar */
+        .modal-scrollbar::-webkit-scrollbar { width: 6px; }
+        .modal-scrollbar::-webkit-scrollbar-track { background: #f8fafc; }
+        .modal-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        .modal-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-bgLight antialiased selection:bg-gold selection:text-primary">
@@ -90,7 +96,6 @@
 
     <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden scroll-mt-20 flex items-center min-h-[80vh]">
         <div class="absolute inset-0 bg-primary z-0">
-            <!-- Background pattern placeholder -->
             <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23d4af37\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
@@ -128,8 +133,7 @@
                     </div>
                 </div>
                 
-                <!-- תחילת החלק המתוקן: הוספת מיכל לאפקט ההתחלפות - מוקטן מעט -->
-                <div class="mt-10 lg:mt-0 relative rounded-xl shadow-2xl border-4 border-gray-100 overflow-hidden w-11/12 md:w-5/6 lg:w-10/12 mx-auto aspect-[4/3] bg-gray-50 flex items-center justify-center">
+               <div class="mt-10 lg:mt-0 relative rounded-xl shadow-2xl border-4 border-gray-100 overflow-hidden w-full lg:w-11/12 mx-auto aspect-[4/3] bg-gray-50 flex items-center justify-center">
                     <!-- שקופית 1 -->
                     <img id="vision-slide-1" 
                          src="mishkan_building.gif" 
@@ -148,7 +152,6 @@
                          alt="מזבח הנחושת עם כבש" 
                          class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                 </div>
-                <!-- סוף החלק המתוקן -->
                 
             </div>
         </div>
@@ -224,7 +227,6 @@
             </h2>
 
             <div class="space-y-12">
-                <!-- Activity part 1 -->
                 <div class="flex flex-col md:flex-row gap-8 items-center bg-gray-50 rounded-2xl p-6 md:p-8 shadow-sm">
                     <div class="md:w-1/3">
                         <img src="mishkan_camp_layout.gif" alt="מחנה ישראל" class="rounded-xl shadow-md w-full">
@@ -238,7 +240,6 @@
                     </div>
                 </div>
 
-                <!-- Activity part 2 -->
                 <div class="flex flex-col md:flex-row-reverse gap-8 items-center bg-gray-50 rounded-2xl p-6 md:p-8 shadow-sm">
                     <div class="md:w-1/3">
                         <img src="mishkan_assembly_steps.gif" alt="הרכבת הדגם" class="rounded-xl shadow-md w-full md:w-5/6 mx-auto object-cover">
@@ -257,7 +258,6 @@
                     </div>
                 </div>
 
-                <!-- Activity part 3 -->
                 <div class="flex flex-col md:flex-row gap-8 items-center bg-gray-50 rounded-2xl p-6 md:p-8 shadow-sm">
                     <div class="md:w-1/3">
                         <img src="mishkan_coverings.gif" alt="כיסויי המשכן" class="rounded-xl shadow-md w-full">
@@ -283,7 +283,6 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                     <!-- Activity part 4 -->
                     <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:border-gold transition-colors">
                         <h3 class="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
                              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
@@ -300,7 +299,6 @@
                         </div>
                     </div>
 
-                    <!-- Activity part 5 -->
                     <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:border-gold transition-colors">
                         <h3 class="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
                              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path></svg>
@@ -357,7 +355,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Target Audience -->
                 <div class="bg-white rounded-2xl p-8 shadow-lg text-center border-b-4 border-primary">
                     <div class="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
@@ -369,7 +366,6 @@
                     </div>
                 </div>
 
-                <!-- Timing -->
                 <div class="bg-white rounded-2xl p-8 shadow-lg text-center border-b-4 border-gold">
                     <div class="mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -384,7 +380,6 @@
                     </ul>
                 </div>
 
-                <!-- Participants -->
                 <div class="bg-white rounded-2xl p-8 shadow-lg text-center border-b-4 border-primary">
                     <div class="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
@@ -400,7 +395,6 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section id="testimonials" class="py-20 bg-blue-50 scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-extrabold text-primary mb-12 text-center relative inline-block">
@@ -408,7 +402,6 @@
                 <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gold rounded"></span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Placeholder testimonial 1 -->
                 <div class="bg-white p-8 rounded-xl shadow-md relative">
                     <svg class="w-10 h-10 text-gold/20 absolute top-4 right-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                     <p class="text-gray-600 mb-6 relative z-10 text-lg">
@@ -423,7 +416,6 @@
                     </div>
                 </div>
 
-                <!-- Placeholder testimonial 2 -->
                 <div class="bg-white p-8 rounded-xl shadow-md relative">
                     <svg class="w-10 h-10 text-gold/20 absolute top-4 right-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                     <p class="text-gray-600 mb-6 relative z-10 text-lg">
@@ -452,8 +444,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                
-                <!-- כרטיסיית טלפון -->
                 <a href="tel:054-4530707" class="group flex flex-col items-center justify-center p-10 bg-gray-50 rounded-3xl shadow-sm border border-gray-200 hover:shadow-2xl hover:-translate-y-2 hover:border-gold transition-all duration-300">
                     <div class="w-20 h-20 bg-blue-100 group-hover:bg-gold/20 rounded-full flex items-center justify-center mb-6 transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary group-hover:text-gold transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -464,7 +454,6 @@
                     <p class="text-2xl text-gray-700 font-bold group-hover:text-gold transition-colors duration-300" dir="ltr">054-4530707</p>
                 </a>
 
-                <!-- כרטיסיית אימייל -->
                 <a href="mailto:bamishkan@gmail.com" class="group flex flex-col items-center justify-center p-10 bg-gray-50 rounded-3xl shadow-sm border border-gray-200 hover:shadow-2xl hover:-translate-y-2 hover:border-gold transition-all duration-300">
                     <div class="w-20 h-20 bg-blue-100 group-hover:bg-gold/20 rounded-full flex items-center justify-center mb-6 transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary group-hover:text-gold transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -474,27 +463,122 @@
                     <h3 class="text-2xl font-bold text-primary mb-2">דוא"ל</h3>
                     <p class="text-xl text-gray-700 font-bold group-hover:text-gold transition-colors duration-300">bamishkan@gmail.com</p>
                 </a>
-
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer עם קישור למדיניות פרטיות -->
     <footer class="bg-primary text-white py-8 border-t-4 border-gold">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-2 mb-4 md:mb-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
                 <span class="text-xl font-bold">לגעת במשכן</span>
             </div>
-            <p class="text-gray-300 text-sm">
-                © כל הזכויות שמורות ללגעת במשכן - פעילות של לימוד חוויתי.
-            </p>
+            
+            <div class="flex flex-col items-center md:items-end gap-1">
+                <p class="text-gray-300 text-sm">
+                    © כל הזכויות שמורות ללגעת במשכן - פעילות של לימוד חוויתי.
+                </p>
+                <!-- כפתור פתיחת מדיניות פרטיות -->
+                <button type="button" onclick="openPrivacyModal()" class="text-gray-400 hover:text-gold text-sm transition-colors cursor-pointer bg-transparent border-none p-0 underline decoration-gray-500 hover:decoration-gold">
+                    מדיניות פרטיות
+                </button>
+            </div>
         </div>
     </footer>
 
+    <!-- מודל (חלון קופץ) למדיניות פרטיות -->
+    <div id="privacy-modal" class="hidden fixed inset-0 z-[100] overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            
+            <!-- רקע כהה, לחיצה עליו תסגור את החלון -->
+            <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity backdrop-blur-sm" aria-hidden="true" onclick="closePrivacyModal()"></div>
+
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            
+            <div class="inline-block align-bottom bg-white rounded-2xl text-right overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full border-t-4 border-gold relative">
+                
+                <!-- כפתור סגירה (X) למעלה -->
+                <button type="button" onclick="closePrivacyModal()" class="absolute top-4 left-4 text-gray-400 hover:text-gray-600 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <div class="bg-white px-4 pt-8 pb-4 sm:p-8 sm:pb-6">
+                    <h3 class="text-2xl leading-6 font-bold text-primary mb-6 text-center" id="modal-title">מדיניות פרטיות</h3>
+                    
+                    <!-- תוכן מדיניות הפרטיות -->
+                    <div class="mt-2 text-gray-700 text-sm h-[60vh] overflow-y-auto pl-4 modal-scrollbar space-y-5 leading-relaxed">
+                        
+                        <p><strong>עודכן לאחרונה:</strong> אוקטובר 2026</p>
+                        
+                        <p>אנו ב"לגעת במשכן" (להלן: "האתר" או "הנהלת האתר") מכבדים את פרטיותם של המשתמשים הנכנסים לאתר ו/או המשתמשים בשירותים המוצעים בו. מטרת מסמך זה הינה לפרט את הנהלים ביחס לפרטיות המשתמשים, ולתאר את האופן שבו אנו אוספים, משתמשים ושומרים את המידע הנמסר לנו על ידך או הנאסף על ידנו בעת השימוש באתר, בהתאם להוראות חוק הגנת הפרטיות, התשמ"א-1981.</p>
+                        
+                        <h4 class="font-bold text-lg text-primary">1. איסוף מידע</h4>
+                        <p><strong>מידע שנמסר באופן יזום:</strong> בעת יצירת קשר עם הנהלת האתר (דרך טלפון, דוא"ל או טפסי צור קשר ככל שישנם), אתה עשוי למסור לנו מידע אישי מזהה כגון: שם מלא, מספר טלפון, כתובת דואר אלקטרוני, ושם המוסד/בית הספר אותו אתה מייצג. מסירת המידע אינה מחויבת על פי חוק, אך בלעדיו ייתכן שלא נוכל לחזור אליך או לספק את השירות המבוקש.</p>
+                        <p><strong>מידע הנאסף באופן אוטומטי:</strong> בעת הגלישה באתר, ייתכן וייאסף מידע טכני וסטטיסטי שאינו מזהה אותך אישית, כגון: סוג הדפדפן, כתובת ה-IP, זמן השהות באתר, העמודים שבהם ביקרת, מערכת ההפעלה וכדומה.</p>
+
+                        <h4 class="font-bold text-lg text-primary">2. מטרות השימוש במידע</h4>
+                        <p>המידע שייאסף יישמר במאגרי המידע של הנהלת האתר וישמש למטרות הבאות:</p>
+                        <ul class="list-disc list-inside space-y-1 pr-4 marker:text-gold">
+                            <li>יצירת קשר עמך לשם מתן מענה לשאלותיך, תיאום פעילויות והרצאות.</li>
+                            <li>מתן שירות לקוחות ותמיכה.</li>
+                            <li>שיפור, העשרה והתאמת התכנים והשירותים המוצעים באתר.</li>
+                            <li>ניתוח מידע סטטיסטי ומסירתו לצדדים שלישיים (מידע זה לא יזהה אותך אישית).</li>
+                            <li>לכל מטרה אחרת המפורטת במדיניות פרטיות זו או בתנאי השימוש של האתר.</li>
+                        </ul>
+
+                        <h4 class="font-bold text-lg text-primary">3. מסירת מידע לצד שלישי</h4>
+                        <p>הנהלת האתר מתחייבת לא למכור, להשכיר או להעביר את המידע האישי שלך לצדדים שלישיים, למעט במקרים הבאים:</p>
+                        <ul class="list-disc list-inside space-y-1 pr-4 marker:text-gold">
+                            <li>כאשר התקבלה הסכמתך המפורשת לכך.</li>
+                            <li>לצורך מתן השירות המבוקש על ידך (למשל, העברת פרטים למדריך הפעילות).</li>
+                            <li>במקרה של מחלוקת משפטית, טענה, תביעה או הליכים משפטיים בינך לבין הנהלת האתר.</li>
+                            <li>במקרה שבו יינתן צו שיפוטי המורה למסור את פרטיך לצד שלישי.</li>
+                            <li>על פי כל דין חל.</li>
+                        </ul>
+
+                        <h4 class="font-bold text-lg text-primary">4. קוקיז (Cookies) וכלי ניתוח</h4>
+                        <p>האתר עשוי להשתמש ב"עוגיות" (Cookies) לצורך תפעולו השוטף והתקין, ובכלל זה כדי לאסוף נתונים סטטיסטיים אודות השימוש באתר, לאימות פרטים, ולהתאמת האתר להעדפותיך האישיות. באפשרותך להימנע מקבלת עוגיות על ידי שינוי ההגדרות בדפדפן שלך, אולם ייתכן כי חסימת העוגיות תפגע בחוויית הגלישה שלך בחלקים מסוימים של האתר.</p>
+
+                        <h4 class="font-bold text-lg text-primary">5. אבטחת מידע</h4>
+                        <p>הנהלת האתר מיישמת מערכות ונהלים עדכניים לאבטחת מידע. בעוד שמערכות ונהלים אלה מצמצמים את הסיכונים לחדירה בלתי-מורשית, אין הם מעניקים ביטחון מוחלט. לכן, הנהלת האתר אינה מתחייבת שהאתר יהיה חסין באופן מוחלט מפני גישה בלתי-מורשית למידע המאוחסן בו.</p>
+
+                        <h4 class="font-bold text-lg text-primary">6. זכויות המשתמש (עיון, תיקון ומחיקה)</h4>
+                        <p>על פי חוק הגנת הפרטיות, התשמ"א-1981, כל אדם זכאי לעיין במידע שעליו המוחזק במאגר מידע. במידה ומצאת כי המידע אודותיך אינו נכון, שלם, ברור או מעודכן, הנך רשאי לפנות אלינו בבקשה לתקן את המידע או למוחקו. ניתן לעשות זאת באמצעות פנייה לדואר האלקטרוני: <strong>bamishkan@gmail.com</strong>.</p>
+
+                        <h4 class="font-bold text-lg text-primary">7. שינויים במדיניות הפרטיות</h4>
+                        <p>הנהלת האתר שומרת לעצמה את הזכות לשנות ולעדכן את מדיניות הפרטיות מעת לעת, על פי שיקול דעתה הבלעדי. כל שינוי מהותי יפורסם בעמוד זה, והשימוש המתמשך באתר לאחר מכן יהווה את הסכמתך לשינויים.</p>
+
+                        <h4 class="font-bold text-lg text-primary">8. יצירת קשר</h4>
+                        <p>לכל שאלה או הבהרה בנוגע למדיניות פרטיות זו, ניתן לפנות אלינו בטלפון: 054-4530707 או בדוא"ל: bamishkan@gmail.com, ונשמח לעמוד לרשותך.</p>
+                        
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-4 sm:px-6 flex justify-center border-t border-gray-100">
+                    <button type="button" class="w-full sm:w-auto inline-flex justify-center rounded-full border border-transparent shadow-md px-10 py-2.5 bg-primary text-base font-bold text-white hover:bg-gold focus:outline-none transition-colors duration-300" onclick="closePrivacyModal()">
+                        הבנתי, סגור
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // פונקציות פתיחה וסגירה של חלון מדיניות הפרטיות
+        function openPrivacyModal() {
+            document.getElementById('privacy-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // מונע גלילה של הדף האחורי
+        }
+
+        function closePrivacyModal() {
+            document.getElementById('privacy-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // מחזיר גלילה לדף האחורי
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const btn = document.getElementById('mobile-menu-btn');
             const menu = document.getElementById('mobile-menu');
@@ -513,7 +597,6 @@
             });
 
             // תחילת הקוד שמחליף בין התמונות באפקט
-            // עודכן כדי לתמוך ב-3 תמונות (או יותר) בצורה חלקה
             const slides = [
                 document.getElementById('vision-slide-1'),
                 document.getElementById('vision-slide-2'),
@@ -535,6 +618,13 @@
                 }, 3000); // מתחלף כל 3 שניות
             }
             // סוף קוד אפקט התמונות
+            
+            // סגירת המודל בלחיצה על מקש Escape
+            document.addEventListener('keydown', function(event) {
+                if (event.key === "Escape") {
+                    closePrivacyModal();
+                }
+            });
         });
     </script>
 </body>
