@@ -18,87 +18,106 @@
                         sans: ['Assistant', 'sans-serif'],
                     },
                     colors: {
-                        primary: '#1a365d', // Navy blue requested
-                        primaryLight: '#2c5282',
-                        gold: '#d4af37',
-                        goldLight: '#e6c762',
-                        bgLight: '#f8fafc',
-                        surface: '#ffffff',
-                        textMain: '#334155', // Soft slate for reading
+                        primary: '#1e3a5f',      /* Deep Navy Blue - Replaces Black */
+                        primaryLight: '#2a5285', 
+                        primarySoft: '#eef2f6',  /* Very soft blue for subtle backgrounds */
+                        gold: '#d4af37',         /* Rich Gold */
+                        goldLight: '#ebd07a',
+                        goldSoft: '#fbf7ed',
+                        cream: '#fdfbf7',        /* Parchment / Linen bright background */
+                        creamDark: '#f5f0e6',
+                        textMain: '#1e3a5f',     /* All main text is Navy, not gray/black */
+                        textMuted: '#405f88',    /* Muted text is lighter Navy */
                     },
                     boxShadow: {
-                        'soft': '0 20px 40px -15px rgba(26, 54, 93, 0.05)',
-                        'gold': '0 10px 25px -5px rgba(212, 175, 55, 0.3)',
+                        /* All shadows use Navy Blue (1e3a5f) instead of Black */
+                        'soft': '0 15px 40px -10px rgba(30, 58, 95, 0.08)',
+                        'hover': '0 25px 50px -12px rgba(30, 58, 95, 0.15)',
+                        'gold': '0 15px 35px -10px rgba(212, 175, 55, 0.3)',
+                        'glass': '0 8px 32px 0 rgba(30, 58, 95, 0.05)',
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Custom scrollbar - Light theme */
+        body { background-color: #fdfbf7; color: #1e3a5f; }
+        
+        /* Custom scrollbar - Navy/Gold Theme */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f8fafc; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #d4af37; }
+        ::-webkit-scrollbar-track { background: #fdfbf7; }
+        ::-webkit-scrollbar-thumb { background: #405f88; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1e3a5f; }
         
         .modal-scrollbar::-webkit-scrollbar { width: 6px; }
-        .modal-scrollbar::-webkit-scrollbar-track { background: #f8fafc; }
-        .modal-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 3px; }
+        .modal-scrollbar::-webkit-scrollbar-track { background: #fdfbf7; }
+        .modal-scrollbar::-webkit-scrollbar-thumb { background: #2a5285; border-radius: 3px; }
         .modal-scrollbar::-webkit-scrollbar-thumb:hover { background: #d4af37; }
 
-        .title-accent {
+        /* Elegant Gold Underline for Titles */
+        .gold-underline {
             position: relative;
             display: inline-block;
+            padding-bottom: 0.5rem;
         }
-        .title-accent::after {
+        .gold-underline::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: 0;
             right: 0;
-            width: 40%;
-            height: 4px;
-            background-color: #d4af37;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to left, #d4af37, #ebd07a);
             border-radius: 2px;
         }
-        .title-accent-center::after {
+        .gold-underline-center::after {
             right: 50%;
             transform: translateX(50%);
-            width: 60px;
+            width: 80px;
+        }
+        
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
-<body class="font-sans text-textMain bg-bgLight antialiased selection:bg-gold/20 selection:text-primary">
+<body class="font-sans antialiased selection:bg-gold/30 selection:text-primary">
 
-    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05)] z-50 top-0 transition-all duration-300">
+    <nav class="fixed w-full glass-panel shadow-[0_4px_30px_rgba(30,58,95,0.05)] z-50 top-0 transition-all duration-300 border-b border-primarySoft">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between items-center h-24">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#home" class="text-2xl font-extrabold text-primary hover:text-gold transition-colors flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                        </svg>
+                    <a href="#home" class="text-3xl font-extrabold text-primary hover:text-gold transition-colors duration-300 flex items-center gap-3">
+                        <div class="w-12 h-12 bg-primarySoft rounded-2xl flex items-center justify-center border border-white shadow-soft">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
                         לגעת במשכן
                     </a>
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex space-x-1 space-x-reverse items-center">
-                    <a href="#home" class="text-textMain hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">דף הבית</a>
-                    <a href="#vision" class="text-textMain hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">מראה עיניים</a>
-                    <a href="#model" class="text-textMain hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">דגם המשכן</a>
-                    <a href="#activity" class="text-textMain hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">תוכן הפעילות</a>
-                    <a href="#explanation" class="text-textMain hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">הסבר נלווה</a>
-                    <a href="#operation" class="text-textMain hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">פעילות המשכן</a>
-                    <a href="#testimonials" class="text-textMain hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">המלצות</a>
-                    <a onclick="openPrivacyModal()" class="cursor-pointer text-textMain hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">מדיניות פרטיות</a>
-                    <a href="#contact" class="bg-gold text-white hover:bg-goldLight shadow-gold px-5 py-2.5 rounded-full text-sm font-bold transition-all transform hover:-translate-y-0.5 mr-4">צור קשר</a>
+                <div class="hidden lg:flex items-center gap-1">
+                    <a href="#home" class="text-textMuted hover:text-primary hover:bg-primarySoft px-4 py-2.5 rounded-xl text-base font-semibold transition-all">דף הבית</a>
+                    <a href="#vision" class="text-textMuted hover:text-primary hover:bg-primarySoft px-4 py-2.5 rounded-xl text-base font-semibold transition-all">מראה עיניים</a>
+                    <a href="#model" class="text-textMuted hover:text-primary hover:bg-primarySoft px-4 py-2.5 rounded-xl text-base font-semibold transition-all">דגם המשכן</a>
+                    <a href="#activity" class="text-textMuted hover:text-primary hover:bg-primarySoft px-4 py-2.5 rounded-xl text-base font-semibold transition-all">תוכן הפעילות</a>
+                    <a href="#explanation" class="text-textMuted hover:text-primary hover:bg-primarySoft px-4 py-2.5 rounded-xl text-base font-semibold transition-all">הסבר נלווה</a>
+                    <a href="#operation" class="text-textMuted hover:text-primary hover:bg-primarySoft px-4 py-2.5 rounded-xl text-base font-semibold transition-all">פעילות המשכן</a>
+                    <a href="#testimonials" class="text-textMuted hover:text-primary hover:bg-primarySoft px-4 py-2.5 rounded-xl text-base font-semibold transition-all">המלצות</a>
+                    <a href="#contact" class="mr-4 bg-primary text-white hover:bg-gold shadow-soft hover:shadow-gold px-6 py-3 rounded-full text-base font-bold transition-all transform hover:-translate-y-1">צור קשר</a>
                 </div>
 
                 <!-- Mobile menu button -->
                 <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-primary hover:text-gold focus:outline-none p-2 bg-blue-50 rounded-lg">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <button id="mobile-menu-btn" class="text-primary hover:text-gold focus:outline-none p-2 bg-primarySoft rounded-xl transition-colors">
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
@@ -107,81 +126,83 @@
         </div>
 
         <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full z-40">
-            <div class="px-4 pt-3 pb-6 space-y-2 sm:px-6">
-                <a href="#home" class="block text-textMain hover:text-primary hover:bg-blue-50 px-4 py-2.5 rounded-lg text-base font-medium">דף הבית</a>
-                <a href="#vision" class="block text-textMain hover:text-primary hover:bg-blue-50 px-4 py-2.5 rounded-lg text-base font-medium">מראה עיניים</a>
-                <a href="#model" class="block text-textMain hover:text-primary hover:bg-blue-50 px-4 py-2.5 rounded-lg text-base font-medium">דגם המשכן</a>
-                <a href="#activity" class="block text-textMain hover:text-primary hover:bg-blue-50 px-4 py-2.5 rounded-lg text-base font-medium">תוכן הפעילות</a>
-                <a href="#explanation" class="block text-textMain hover:text-primary hover:bg-blue-50 px-4 py-2.5 rounded-lg text-base font-medium">הסבר נלווה</a>
-                <a href="#operation" class="block text-textMain hover:text-primary hover:bg-blue-50 px-4 py-2.5 rounded-lg text-base font-medium">פעילות המשכן</a>
-                <a href="#testimonials" class="block text-textMain hover:text-primary hover:bg-blue-50 px-4 py-2.5 rounded-lg text-base font-medium">המלצות</a>
-                <a onclick="openPrivacyModal()" class="cursor-pointer block text-textMain hover:text-primary hover:bg-blue-50 px-4 py-2.5 rounded-lg text-base font-medium">מדיניות פרטיות</a>
-                <a href="#contact" class="block bg-gold text-white text-center font-bold hover:bg-goldLight px-4 py-3 rounded-xl text-base mt-4 shadow-sm">צור קשר</a>
+        <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-primarySoft shadow-soft absolute w-full z-40 rounded-b-3xl">
+            <div class="px-6 pt-4 pb-8 space-y-2">
+                <a href="#home" class="block text-primary hover:bg-primarySoft px-4 py-3 rounded-xl text-lg font-bold transition-colors">דף הבית</a>
+                <a href="#vision" class="block text-textMuted hover:text-primary hover:bg-primarySoft px-4 py-3 rounded-xl text-lg font-semibold transition-colors">מראה עיניים</a>
+                <a href="#model" class="block text-textMuted hover:text-primary hover:bg-primarySoft px-4 py-3 rounded-xl text-lg font-semibold transition-colors">דגם המשכן</a>
+                <a href="#activity" class="block text-textMuted hover:text-primary hover:bg-primarySoft px-4 py-3 rounded-xl text-lg font-semibold transition-colors">תוכן הפעילות</a>
+                <a href="#explanation" class="block text-textMuted hover:text-primary hover:bg-primarySoft px-4 py-3 rounded-xl text-lg font-semibold transition-colors">הסבר נלווה</a>
+                <a href="#operation" class="block text-textMuted hover:text-primary hover:bg-primarySoft px-4 py-3 rounded-xl text-lg font-semibold transition-colors">פעילות המשכן</a>
+                <a href="#testimonials" class="block text-textMuted hover:text-primary hover:bg-primarySoft px-4 py-3 rounded-xl text-lg font-semibold transition-colors">המלצות</a>
+                <a href="#contact" class="block bg-gold text-primary text-center font-extrabold hover:bg-goldLight px-4 py-4 rounded-2xl text-lg mt-6 shadow-gold">צור קשר</a>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden scroll-mt-20 flex items-center min-h-[85vh] bg-gradient-to-b from-blue-50/80 to-white">
-        <!-- Abstract light graphic background -->
-        <div class="absolute inset-0 z-0 opacity-40 pointer-events-none overflow-hidden">
-            <div class="absolute top-[-10%] right-[-5%] w-96 h-96 rounded-full bg-gold/10 blur-3xl"></div>
-            <div class="absolute bottom-[-10%] left-[-5%] w-3/4 h-96 rounded-full bg-primary/5 blur-3xl"></div>
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden scroll-mt-20 flex items-center min-h-[90vh]">
+        <!-- Elegant Abstract Background -->
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-[20%] -right-[10%] w-[800px] h-[800px] rounded-full bg-gradient-to-br from-gold/10 to-transparent blur-3xl opacity-60"></div>
+            <div class="absolute -bottom-[20%] -left-[10%] w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-primary/10 to-transparent blur-3xl opacity-60"></div>
         </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 text-primary leading-tight">
-                להרכיב את דגם המשכן <br/>
-                <span class="text-gold block mt-2 text-3xl md:text-5xl lg:text-6xl">פעילות של לימוד חוויתי</span>
-            </h1>
-            <p class="mt-8 max-w-3xl mx-auto text-xl md:text-2xl text-textMain leading-relaxed font-light">
-                ב"לגעת במשכן" אנחנו מציעים פעילויות והרצאות לבתי ספר וקהילות, באמצעות בניית דגם המשכן ע"י הילדים והכנסת כלי הקודש לדגם - חוויה לימודית חיה ומוחשית.
-            </p>
-            <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-                <a href="#contact" class="px-8 py-4 bg-gold text-white font-bold rounded-full text-lg shadow-gold hover:shadow-lg hover:-translate-y-1 transition duration-300">הזמינו פעילות עכשיו</a>
-                <a href="#activity" class="px-8 py-4 bg-white border-2 border-primary/10 text-primary font-bold rounded-full text-lg shadow-sm hover:border-primary hover:bg-primary/5 transition duration-300">למידע נוסף</a>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <span class="inline-block py-1.5 px-4 rounded-full bg-gold/10 text-gold font-bold text-sm tracking-wide mb-6 border border-gold/20 shadow-[0_0_15px_rgba(212,175,55,0.1)]">חוויה לימודית ומוחשית</span>
+                <h1 class="text-5xl md:text-6xl lg:text-8xl font-extrabold tracking-tight mb-8 text-primary leading-[1.1]">
+                    להרכיב את <br class="hidden md:block"/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-l from-gold to-goldLight">דגם המשכן</span>
+                </h1>
+                <p class="mt-6 text-xl md:text-2xl text-textMuted leading-relaxed font-medium max-w-3xl mx-auto">
+                    ב"לגעת במשכן" אנחנו מציעים פעילויות והרצאות לבתי ספר וקהילות, באמצעות בניית דגם המשכן ע"י הילדים והכנסת כלי הקודש לדגם.
+                </p>
+                <div class="mt-12 flex flex-col sm:flex-row justify-center gap-6">
+                    <a href="#contact" class="px-10 py-4 bg-primary text-white font-bold rounded-full text-lg shadow-soft hover:shadow-hover hover:-translate-y-1 hover:bg-primaryLight transition-all duration-300 text-center flex items-center justify-center gap-2">
+                        הזמינו פעילות עכשיו
+                        <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                    <a href="#activity" class="px-10 py-4 bg-white text-primary font-bold rounded-full text-lg shadow-sm border border-primarySoft hover:border-gold hover:text-gold transition-all duration-300 text-center">
+                        למידע נוסף
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="vision" class="py-24 bg-white scroll-mt-20">
+    <section id="vision" class="py-24 bg-white relative scroll-mt-20">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent"></div>
+        
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-                <div class="mb-12 lg:mb-0">
-                    <h2 class="text-4xl font-extrabold text-primary mb-8 title-accent">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-20 items-center">
+                <div class="mb-16 lg:mb-0 relative z-10">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-primary mb-10 gold-underline">
                         מראה עיניים
                     </h2>
-                    <div class="prose prose-lg text-textMain">
-                        <p class="mb-6 leading-relaxed">
+                    <div class="space-y-6 text-lg md:text-xl text-textMuted leading-relaxed">
+                        <p>
                             המלמדים את פרשות המשכן מתקשים לעיתים להסביר את כל הפרטים שבמשכן, ולהמחיש את מבנהו. בתורה מתוארים מרכיבי המשכן אבל לא תמיד ברור איך הם התחברו, וזה לא פשוט לילדים הנתקלים לראשונה במרכיבי המשכן.
                         </p>
-                        <div class="p-5 bg-blue-50/50 border-r-4 border-gold rounded-l-xl mb-6">
-                            <p class="text-primary font-bold text-xl m-0">
+                        <div class="p-8 bg-cream border-r-4 border-gold rounded-l-3xl shadow-soft my-8 transform hover:-translate-x-2 transition-transform duration-300">
+                            <p class="text-primary font-bold text-2xl m-0 leading-tight">
                                 אם נוכל ממש לגעת במשכן, לראות ולבנות אותו, נוכל להבין יותר.
                             </p>
                         </div>
-                        <p class="leading-relaxed">
+                        <p>
                             אנחנו הכנו דגם של המשכן המיועד להרכבה ע"י הילדים, וכאשר הילדים מרכיבים בעצמם את הדגם הגדול שאנחנו מביאים לבית הספר, הם רואים ומבינים איך הפריטים מתחברים. אכן הילדים מרכיבים את הדגם בשמחה ובהתלהבות.
                         </p>
                     </div>
                 </div>
                 
-                <div class="relative rounded-2xl shadow-soft border border-gray-100/50 overflow-hidden w-full aspect-[4/3] bg-white flex items-center justify-center p-2 group">
-                    <div class="relative w-full h-full rounded-xl overflow-hidden bg-gray-50">
-                        <img id="vision-slide-1" 
-                             src="mishkan_building.gif" 
-                             alt="ילדים מרכיבים את המשכן" 
-                             class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-
-                        <img id="vision-slide-2" 
-                             src="mishkan_model.gif" 
-                             alt="דגם המשכן מורכב" 
-                             class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-
-                        <img id="vision-slide-3" 
-                             src="mizbeach_with_ramp_hq.gif" 
-                             alt="מזבח הנחושת עם כבש" 
-                             class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                <div class="relative z-10">
+                    <!-- Elegant Image Frame -->
+                    <div class="relative rounded-[2rem] shadow-hover p-4 bg-white border border-primarySoft transform lg:-rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-gold to-goldLight rounded-[2rem] blur opacity-20"></div>
+                        <div class="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden bg-cream">
+                            <img id="vision-slide-1" src="mishkan_building.gif" alt="ילדים מרכיבים את המשכן" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                            <img id="vision-slide-2" src="mishkan_model.gif" alt="דגם המשכן מורכב" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img id="vision-slide-3" src="mizbeach_with_ramp_hq.gif" alt="מזבח הנחושת עם כבש" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                        </div>
                     </div>
                 </div>
                 
@@ -189,68 +210,66 @@
         </div>
     </section>
 
-    <section id="model" class="py-24 bg-slate-50 scroll-mt-20">
+    <section id="model" class="py-24 bg-cream relative scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold text-primary title-accent title-accent-center">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-primary mb-6 gold-underline gold-underline-center">
                     דגם המשכן
                 </h2>
-                <p class="mt-6 text-xl text-textMain font-light">הדגם המורכב עם כלי הקודש בתוכו</p>
+                <p class="mt-6 text-xl text-textMuted max-w-2xl mx-auto">הדגם המורכב עם כלי הקודש בתוכו. קנה מידה מוחשי הממחיש את הכתוב.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <!-- Card 1 -->
-                <div class="bg-white rounded-2xl shadow-soft p-8 border border-gray-100 hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
-                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
+                <div class="bg-white rounded-3xl p-10 shadow-soft border border-white hover:border-primarySoft hover:shadow-hover hover:-translate-y-2 transition-all duration-300 flex flex-col h-full group">
+                    <div class="w-16 h-16 bg-primarySoft rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-4">מידות הדגם</h3>
-                    <p class="text-textMain mb-4">מידות דגם המשכן לעומת המשכן האמיתי:</p>
-                    <ul class="space-y-3 text-textMain mb-6 flex-grow">
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-gold"></div><strong class="text-primary font-semibold">אורך הדגם:</strong> 150 ס"מ</li>
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-gold"></div><strong class="text-primary font-semibold">רוחב:</strong> 50 ס"מ</li>
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-gold"></div><strong class="text-primary font-semibold">גובה:</strong> 50 ס"מ</li>
+                    <h3 class="text-3xl font-extrabold text-primary mb-6">מידות הדגם</h3>
+                    <p class="text-textMuted font-medium mb-6">מידות דגם המשכן לעומת המשכן האמיתי:</p>
+                    <ul class="space-y-4 text-textMain text-lg mb-8 flex-grow">
+                        <li class="flex items-center gap-3 bg-creamDark/50 p-3 rounded-xl"><div class="w-2 h-2 rounded-full bg-gold"></div><strong class="text-primary">אורך הדגם:</strong> 150 ס"מ</li>
+                        <li class="flex items-center gap-3 bg-creamDark/50 p-3 rounded-xl"><div class="w-2 h-2 rounded-full bg-gold"></div><strong class="text-primary">רוחב:</strong> 50 ס"מ</li>
+                        <li class="flex items-center gap-3 bg-creamDark/50 p-3 rounded-xl"><div class="w-2 h-2 rounded-full bg-gold"></div><strong class="text-primary">גובה:</strong> 50 ס"מ</li>
                     </ul>
-                    <div class="p-3 bg-blue-50 rounded-lg text-primary font-semibold text-sm text-center mb-4">
-                        זהו קנה מידה 1:10 ביחס למשכן האמיתי.
+                    <div class="p-4 bg-goldSoft rounded-2xl border border-gold/20 text-primary font-bold text-center mb-6">
+                        קנה מידה 1:10 ביחס למשכן האמיתי
                     </div>
-                    <p class="text-sm text-gray-500 mb-4 text-center">מידות המשכן האמיתי: 30 אמות אורך, 10 אמות רוחב, 10 אמות גובה.</p>
-                    <div class="pt-4 border-t border-gray-100 text-sm text-textMain">הדגם עשוי עץ וצבוע זהב, נבנה על משטח עם גלגלים להדגמה קלה מכל צדדיו.</div>
+                    <p class="text-sm text-textMuted text-center">מידות המשכן האמיתי: 30 אמות אורך, 10 אמות רוחב, 10 אמות גובה. הדגם עשוי עץ וצבוע זהב, נבנה על משטח עם גלגלים.</p>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-white rounded-2xl shadow-soft p-8 border border-gray-100 hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
-                    <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <div class="bg-white rounded-3xl p-10 shadow-soft border border-white hover:border-primarySoft hover:shadow-hover hover:-translate-y-2 transition-all duration-300 flex flex-col h-full group">
+                    <div class="w-16 h-16 bg-goldSoft rounded-2xl flex items-center justify-center mb-8 group-hover:bg-gold transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gold group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-4">הערות</h3>
-                    <p class="text-textMain mb-4">מה אפשר לראות בדגם המשכן:</p>
-                    <ul class="space-y-4 text-textMain list-none">
-                        <li class="flex items-start gap-2">
-                            <div class="w-2 h-2 rounded bg-gold mt-2 flex-shrink-0"></div>
-                            <span>בדגם זה ניתן פחות דגש לצד האומנותי ויותר לצד הטכני: כיצד המרכיבים מתחברים זה לזה ומה המידות שלהם.</span>
+                    <h3 class="text-3xl font-extrabold text-primary mb-6">הערות חשובות</h3>
+                    <p class="text-textMuted font-medium mb-6">מה אפשר לראות בדגם המשכן:</p>
+                    <ul class="space-y-5 text-textMain text-lg list-none">
+                        <li class="flex items-start gap-3">
+                            <div class="w-2.5 h-2.5 rounded-full bg-primary mt-2.5 flex-shrink-0 shadow-[0_0_8px_rgba(30,58,95,0.3)]"></div>
+                            <span class="leading-relaxed">בדגם זה ניתן פחות דגש לצד האומנותי ויותר לצד הטכני: כיצד המרכיבים מתחברים זה לזה ומה המידות.</span>
                         </li>
-                        <li class="flex items-start gap-2">
-                            <div class="w-2 h-2 rounded bg-gold mt-2 flex-shrink-0"></div>
-                            <span>הדגם נבנה לפי הפירושים המקובלים, אי אפשר להציג את כל הדעות, אך בהסבר מוזכרות הדעות השונות.</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2.5 h-2.5 rounded-full bg-primary mt-2.5 flex-shrink-0 shadow-[0_0_8px_rgba(30,58,95,0.3)]"></div>
+                            <span class="leading-relaxed">הדגם נבנה לפי הפירושים המקובלים, אי אפשר להציג את כל הדעות, אך בהסבר מוזכרות הדעות השונות.</span>
                         </li>
-                        <li class="flex items-start gap-2">
-                            <div class="w-2 h-2 rounded bg-gold mt-2 flex-shrink-0"></div>
-                            <span>בשל גודלו של הדגם לא בנינו סביבו את חצר המשכן, החצר מוצגת רק בדגם הקטן של מחנה ישראל במדבר.</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2.5 h-2.5 rounded-full bg-primary mt-2.5 flex-shrink-0 shadow-[0_0_8px_rgba(30,58,95,0.3)]"></div>
+                            <span class="leading-relaxed">בשל גודלו של הדגם לא בנינו סביבו את חצר המשכן, החצר מוצגת רק בדגם הקטן של מחנה ישראל.</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-white rounded-2xl shadow-soft p-8 border border-gray-100 hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
-                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                <div class="bg-white rounded-3xl p-10 shadow-soft border border-white hover:border-primarySoft hover:shadow-hover hover:-translate-y-2 transition-all duration-300 flex flex-col h-full group md:col-span-2 lg:col-span-1">
+                    <div class="w-16 h-16 bg-primarySoft rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-4">מבנה הקרש</h3>
-                    <p class="text-textMain mb-2 font-medium">המרכיבים של הקרשים:</p>
-                    <p class="text-textMain mb-6 text-sm">לפני שהילדים מרכיבים את קרשי המשכן, הם מתבקשים להתבונן בקרש ולהבין את מבנהו.</p>
-                    <div class="mt-auto flex justify-center w-full p-2 bg-gray-50 rounded-xl border border-gray-100">
-                        <img src="mishkan_boards.gif" alt="קרש המשכן" class="w-full h-auto object-contain rounded-lg">
+                    <h3 class="text-3xl font-extrabold text-primary mb-4">מבנה הקרש</h3>
+                    <p class="text-textMuted font-medium mb-6">לפני שהילדים מרכיבים את קרשי המשכן, הם מתבקשים להתבונן בקרש ולהבין את מבנהו המיוחד.</p>
+                    <div class="mt-auto flex justify-center w-full p-4 bg-cream rounded-2xl border border-primarySoft/50 group-hover:shadow-inner transition-shadow">
+                        <img src="mishkan_boards.gif" alt="קרש המשכן" class="w-full h-auto object-contain rounded-xl mix-blend-multiply">
                     </div>
                 </div>
             </div>
@@ -259,123 +278,127 @@
 
     <section id="activity" class="py-24 bg-white scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-extrabold text-primary title-accent title-accent-center">
+            <div class="text-center mb-24">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-primary mb-6 gold-underline gold-underline-center">
                     תוכן הפעילות
                 </h2>
+                <p class="mt-6 text-xl text-textMuted max-w-2xl mx-auto">שלבי הפעילות בנויים נדבך על נדבך, ליצירת חוויה שלמה.</p>
             </div>
 
-            <div class="space-y-12">
+            <div class="space-y-16">
                 <!-- Step 1 -->
-                <div class="flex flex-col md:flex-row gap-10 items-center bg-blue-50/40 rounded-[2rem] p-8 md:p-10 border border-blue-100/50">
+                <div class="flex flex-col md:flex-row gap-12 items-center bg-cream rounded-[2.5rem] p-8 md:p-12 border border-primarySoft hover:shadow-soft transition-shadow">
                     <div class="md:w-5/12 w-full">
-                        <div class="rounded-2xl overflow-hidden shadow-soft border-4 border-white">
-                            <img src="mishkan_camp_layout.gif" alt="מחנה ישראל" class="w-full object-cover">
+                        <div class="rounded-[2rem] overflow-hidden shadow-hover border-[6px] border-white relative group">
+                            <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors z-10"></div>
+                            <img src="mishkan_camp_layout.gif" alt="מחנה ישראל" class="w-full object-cover relative z-0">
                         </div>
                     </div>
                     <div class="md:w-7/12">
-                        <span class="inline-block px-4 py-1.5 bg-white text-primary rounded-full font-bold text-sm shadow-sm mb-4 border border-gray-100">שלב 1</span>
-                        <h3 class="text-3xl font-extrabold text-primary mb-3">מחנה ישראל</h3>
-                        <p class="text-lg text-gold font-bold mb-4">מקומו של המשכן בישראל</p>
-                        <p class="text-lg text-textMain leading-relaxed">
+                        <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary text-white font-extrabold text-2xl shadow-soft mb-6">1</div>
+                        <h3 class="text-4xl font-extrabold text-primary mb-4">מחנה ישראל</h3>
+                        <p class="text-2xl text-gold font-bold mb-6">מקומו של המשכן בישראל</p>
+                        <p class="text-xl text-textMain leading-relaxed">
                             בתחילת הפעילות, מוצג דגם קטן של מחנה ישראל במדבר כשהמשכן נמצא במרכז, בהיות המשכן מרכזו של עם ישראל.
                         </p>
                     </div>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="flex flex-col md:flex-row-reverse gap-10 items-center bg-amber-50/30 rounded-[2rem] p-8 md:p-10 border border-amber-100/50">
+                <div class="flex flex-col md:flex-row-reverse gap-12 items-center bg-cream rounded-[2.5rem] p-8 md:p-12 border border-primarySoft hover:shadow-soft transition-shadow">
                     <div class="md:w-5/12 w-full">
-                        <div class="rounded-2xl overflow-hidden shadow-soft border-4 border-white">
-                            <img src="mishkan_assembly_steps.gif" alt="הרכבת הדגם" class="w-full object-cover">
+                        <div class="rounded-[2rem] overflow-hidden shadow-hover border-[6px] border-white relative group">
+                            <div class="absolute inset-0 bg-gold/10 group-hover:bg-transparent transition-colors z-10"></div>
+                            <img src="mishkan_assembly_steps.gif" alt="הרכבת הדגם" class="w-full object-cover relative z-0">
                         </div>
                     </div>
                     <div class="md:w-7/12">
-                        <span class="inline-block px-4 py-1.5 bg-white text-gold rounded-full font-bold text-sm shadow-sm mb-4 border border-gray-100">שלב 2</span>
-                        <h3 class="text-3xl font-extrabold text-primary mb-4">הרכבת הדגם</h3>
-                        <p class="text-lg text-textMain mb-6">במהלך הפעילות כל ילד לוקח קרש מקרשי המשכן:</p>
+                        <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gold text-white font-extrabold text-2xl shadow-gold mb-6">2</div>
+                        <h3 class="text-4xl font-extrabold text-primary mb-6">הרכבת הדגם</h3>
+                        <p class="text-xl text-textMuted mb-6">במהלך הפעילות כל ילד לוקח קרש מקרשי המשכן ועובר את השלבים הבאים:</p>
                         <ol class="space-y-4">
-                            <li class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 text-primary flex items-center justify-center font-bold ml-4">1</span>
-                                <span class="text-textMain font-medium">מתאים לו שני אדני כסף</span>
+                            <li class="flex items-center bg-white p-5 rounded-2xl shadow-sm border border-primarySoft">
+                                <span class="flex-shrink-0 w-10 h-10 rounded-full bg-primarySoft text-primary flex items-center justify-center font-bold text-lg ml-4">א</span>
+                                <span class="text-textMain font-semibold text-lg">מתאים לו שני אדני כסף</span>
                             </li>
-                            <li class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 text-primary flex items-center justify-center font-bold ml-4">2</span>
-                                <span class="text-textMain font-medium">מחבר אותו לקרשים העומדים</span>
+                            <li class="flex items-center bg-white p-5 rounded-2xl shadow-sm border border-primarySoft">
+                                <span class="flex-shrink-0 w-10 h-10 rounded-full bg-primarySoft text-primary flex items-center justify-center font-bold text-lg ml-4">ב</span>
+                                <span class="text-textMain font-semibold text-lg">מחבר אותו לקרשים העומדים</span>
                             </li>
-                            <li class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 text-primary flex items-center justify-center font-bold ml-4">3</span>
-                                <span class="text-textMain font-medium">מהדק את הקרש החדש לשאר הקרשים באמצעות טבעת מרובעת</span>
+                            <li class="flex items-center bg-white p-5 rounded-2xl shadow-sm border border-primarySoft">
+                                <span class="flex-shrink-0 w-10 h-10 rounded-full bg-primarySoft text-primary flex items-center justify-center font-bold text-lg ml-4">ג</span>
+                                <span class="text-textMain font-semibold text-lg">מהדק את הקרש החדש באמצעות טבעת מרובעת</span>
                             </li>
                         </ol>
-                        <p class="mt-6 text-primary font-semibold bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                        <p class="mt-8 text-primary font-bold text-lg bg-goldSoft p-5 rounded-2xl border border-gold/20">
                             וכאשר המשכן מורכב, הילדים משחילים בו את הבריחים השונים ובהמשך יוכנסו גם כלי הקודש.
                         </p>
                     </div>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="flex flex-col md:flex-row gap-10 items-center bg-blue-50/40 rounded-[2rem] p-8 md:p-10 border border-blue-100/50">
+                <div class="flex flex-col md:flex-row gap-12 items-center bg-cream rounded-[2.5rem] p-8 md:p-12 border border-primarySoft hover:shadow-soft transition-shadow">
                     <div class="md:w-5/12 w-full">
-                        <div class="rounded-2xl overflow-hidden shadow-soft border-4 border-white">
-                            <img src="mishkan_coverings.gif" alt="כיסויי המשכן" class="w-full object-cover">
+                        <div class="rounded-[2rem] overflow-hidden shadow-hover border-[6px] border-white relative group">
+                            <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors z-10"></div>
+                            <img src="mishkan_coverings.gif" alt="כיסויי המשכן" class="w-full object-cover relative z-0">
                         </div>
                     </div>
                     <div class="md:w-7/12">
-                        <span class="inline-block px-4 py-1.5 bg-white text-primary rounded-full font-bold text-sm shadow-sm mb-4 border border-gray-100">שלב 3</span>
-                        <h3 class="text-3xl font-extrabold text-primary mb-4">כיסויי המשכן</h3>
-                        <p class="text-lg text-textMain mb-6">לאחר הרכבת הקרשים נפרוס עליהם את כיסויי המשכן:</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gold/10 text-gold flex items-center justify-center font-bold ml-4 mt-0.5">1</span>
-                                <span class="text-textMain"><strong class="text-primary">יריעות המשכן:</strong> תכלת, ארגמן, שני ושש.</span>
+                        <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary text-white font-extrabold text-2xl shadow-soft mb-6">3</div>
+                        <h3 class="text-4xl font-extrabold text-primary mb-6">כיסויי המשכן</h3>
+                        <p class="text-xl text-textMuted mb-6">לאחר הרכבת הקרשים נפרוס עליהם את כיסויי המשכן, שכבה אחר שכבה:</p>
+                        <ul class="space-y-5">
+                            <li class="flex items-center bg-white p-5 rounded-2xl shadow-sm border border-primarySoft">
+                                <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-gold/10 text-gold flex items-center justify-center font-extrabold text-xl ml-5 border border-gold/20">1</span>
+                                <span class="text-textMain text-lg"><strong class="text-primary font-extrabold">יריעות המשכן:</strong> תכלת, ארגמן, שני ושש.</span>
                             </li>
-                            <li class="flex items-start bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gold/10 text-gold flex items-center justify-center font-bold ml-4 mt-0.5">2</span>
-                                <span class="text-textMain"><strong class="text-primary">יריעות האוהל:</strong> צמר עיזים.</span>
+                            <li class="flex items-center bg-white p-5 rounded-2xl shadow-sm border border-primarySoft">
+                                <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-gold/10 text-gold flex items-center justify-center font-extrabold text-xl ml-5 border border-gold/20">2</span>
+                                <span class="text-textMain text-lg"><strong class="text-primary font-extrabold">יריעות האוהל:</strong> צמר עיזים.</span>
                             </li>
-                            <li class="flex items-start bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gold/10 text-gold flex items-center justify-center font-bold ml-4 mt-0.5">3</span>
-                                <span class="text-textMain"><strong class="text-primary">עורות איילים מאדמים ועורות תחשים:</strong> <span class="text-sm block mt-1 text-gray-500">(לדעה שעורות אלים מאדמים ותחשים זהו כיסוי אחד משולב ולשיטת ששילוב שני העורות נעשה בצורת משולשים).</span></span>
+                            <li class="flex items-start bg-white p-5 rounded-2xl shadow-sm border border-primarySoft">
+                                <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-gold/10 text-gold flex items-center justify-center font-extrabold text-xl ml-5 border border-gold/20 mt-1">3</span>
+                                <span class="text-textMain text-lg leading-relaxed"><strong class="text-primary font-extrabold">עורות איילים ועורות תחשים:</strong> <br/><span class="text-base text-textMuted">(לדעה שעורות אלים מאדמים ותחשים זהו כיסוי אחד משולב, ולשיטת ששילוב העורות נעשה בצורת משולשים).</span></span>
                             </li>
                         </ul>
                     </div>
                 </div>
                 
                 <!-- Extra Information Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-10">
                     <!-- Kelei Hamishkan -->
-                    <div class="bg-white rounded-3xl p-8 shadow-soft border border-gray-100 flex flex-col h-full">
-                        <div class="flex items-center gap-4 mb-6 pb-4 border-b border-gray-100">
-                            <div class="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center text-gold">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    <div class="bg-white rounded-[2.5rem] p-10 shadow-soft border border-primarySoft flex flex-col h-full transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="flex items-center gap-5 mb-8 pb-6 border-b border-creamDark">
+                            <div class="w-16 h-16 rounded-2xl bg-goldSoft flex items-center justify-center text-gold shadow-inner">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
                             </div>
-                            <h3 class="text-2xl font-extrabold text-primary">כלי הקודש</h3>
+                            <h3 class="text-3xl font-extrabold text-primary">כלי הקודש</h3>
                         </div>
-                        <p class="text-textMain mb-4 font-semibold">עוד בפעילות:</p>
-                        <ul class="space-y-3 text-textMain list-none mb-8 flex-grow">
-                            <li class="flex gap-3 items-start"><div class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></div><span>הבחנה בין המאפיינים השונים של הכלים, תפקידם ומיקומם במשכן.</span></li>
-                            <li class="flex gap-3 items-start"><div class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></div><span>הצבת כל אחד מהכלים במקומו בתוך הדגם.</span></li>
-                            <li class="flex gap-3 items-start"><div class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></div><span>השוואה בין שני המזבחות: שמותם, שימושם, מיקומם ומימדיהם (לפי השיטות השונות).</span></li>
+                        <p class="text-textMuted text-lg mb-6 font-bold">עוד בפעילות:</p>
+                        <ul class="space-y-4 text-textMain text-lg list-none mb-10 flex-grow">
+                            <li class="flex gap-4 items-start"><div class="mt-2.5 w-2 h-2 rounded-full bg-gold flex-shrink-0"></div><span class="leading-relaxed">הבחנה בין המאפיינים השונים של הכלים, תפקידם ומיקומם במשכן.</span></li>
+                            <li class="flex gap-4 items-start"><div class="mt-2.5 w-2 h-2 rounded-full bg-gold flex-shrink-0"></div><span class="leading-relaxed">הצבת כל אחד מהכלים במקומו בתוך הדגם.</span></li>
+                            <li class="flex gap-4 items-start"><div class="mt-2.5 w-2 h-2 rounded-full bg-gold flex-shrink-0"></div><span class="leading-relaxed">השוואה בין שני המזבחות: שמותם, שימושם, מיקומם ומימדיהם (לפי השיטות השונות).</span></li>
                         </ul>
-                        <div class="mt-auto flex justify-center bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                            <img src="kelei_hamishkan.gif" alt="כלי המשכן" class="rounded-xl w-3/4 max-w-[220px] object-cover mix-blend-multiply">
+                        <div class="mt-auto flex justify-center bg-cream p-6 rounded-3xl border border-primarySoft/50">
+                            <img src="kelei_hamishkan.gif" alt="כלי המשכן" class="w-4/5 max-w-[250px] object-cover mix-blend-multiply drop-shadow-md">
                         </div>
                     </div>
 
                     <!-- Mizbeach -->
-                    <div class="bg-white rounded-3xl p-8 shadow-soft border border-gray-100 flex flex-col h-full">
-                        <div class="flex items-center gap-4 mb-6 pb-4 border-b border-gray-100">
-                            <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-primary">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path></svg>
+                    <div class="bg-white rounded-[2.5rem] p-10 shadow-soft border border-primarySoft flex flex-col h-full transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="flex items-center gap-5 mb-8 pb-6 border-b border-creamDark">
+                            <div class="w-16 h-16 rounded-2xl bg-primarySoft flex items-center justify-center text-primary shadow-inner">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path></svg>
                             </div>
-                            <h3 class="text-2xl font-extrabold text-primary">מזבח הנחושת</h3>
+                            <h3 class="text-3xl font-extrabold text-primary">מזבח הנחושת</h3>
                         </div>
-                        <p class="text-textMain text-lg leading-relaxed mb-8 flex-grow">
+                        <p class="text-textMain text-xl leading-relaxed mb-10 flex-grow font-medium">
                             במהלך הפעילות ניתן דעתינו לדעות השונות לגבי הגובה של מזבח הנחושת, גגו ואופן נשיאתו ע"י הלווים.
                         </p>
-                        <div class="mt-auto bg-gray-50 rounded-2xl border border-gray-100 p-2 overflow-hidden flex justify-center">
-                            <img src="mizbeach_hanechoshet.gif" alt="מזבח הנחושת" class="w-full max-w-sm rounded-xl object-cover mix-blend-multiply">
+                        <div class="mt-auto bg-cream rounded-3xl border border-primarySoft/50 p-4 overflow-hidden flex justify-center">
+                            <img src="mizbeach_hanechoshet.gif" alt="מזבח הנחושת" class="w-full max-w-sm rounded-2xl object-cover mix-blend-multiply drop-shadow-md">
                         </div>
                     </div>
                 </div>
@@ -384,98 +407,103 @@
         </div>
     </section>
 
-    <!-- Changed from Dark to Light/Airy Blue Theme -->
-    <section id="explanation" class="py-24 bg-blue-50/50 border-y border-blue-100 scroll-mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:flex lg:items-center lg:justify-between gap-16">
-                <div class="lg:w-1/2 mb-12 lg:mb-0">
-                    <h2 class="text-4xl font-extrabold mb-8 text-primary title-accent">
+    <section id="explanation" class="py-32 bg-primary relative overflow-hidden scroll-mt-20">
+        <!-- Abstract Gold Accent -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-gold/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-white/5 to-transparent rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:flex lg:items-center lg:justify-between gap-20">
+                <div class="lg:w-1/2 mb-16 lg:mb-0">
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-10 text-white gold-underline">
                         הסבר נלווה
                     </h2>
-                    <div class="text-lg space-y-6 text-textMain leading-relaxed">
+                    <div class="text-xl space-y-8 text-primarySoft leading-relaxed font-light">
                         <p>
                             בכל שלב בפעילות, נסביר על הפריטים השונים. ניתן הסבר והדגמה לדעות השונות לגבי: צורת הקרשים, מיקום העמודים, מידות הכלים, אופן ציפוי הזהב וכו'.
                         </p>
-                        <div class="p-6 bg-white rounded-2xl border border-gray-200 shadow-sm relative">
-                            <div class="absolute right-0 top-0 bottom-0 w-2 bg-gold rounded-r-2xl"></div>
-                            <p class="text-primary font-bold pr-2">
+                        <div class="p-8 bg-white/10 backdrop-blur-md rounded-[2rem] border border-white/20 shadow-glass relative transform hover:scale-[1.02] transition-transform duration-300">
+                            <div class="absolute right-0 top-0 bottom-0 w-2 bg-gold rounded-r-[2rem]"></div>
+                            <p class="text-goldLight font-bold pr-4 text-2xl leading-snug">
                                 לדוגמה, הדגמת הקרשים ה-"משולשים" לשיטת רבי יהודה לעומת הקרשים ה-"מלבניים" לשיטת רבי נחמיה.
                             </p>
                         </div>
-                        <p>
-                            בפעילות נחלק לילדים דפי מקורות מפרשות המשכן, ואותם נסביר.
+                        <p class="text-white font-medium">
+                            בפעילות נחלק לילדים דפי מקורות מפרשות המשכן, ואותם נסביר בשפה ברורה ומותאמת.
                         </p>
                     </div>
                 </div>
-                <div class="lg:w-1/2 flex justify-center relative">
-                    <div class="absolute inset-0 bg-white opacity-40 blur-3xl rounded-full"></div>
-                    <img src="mishkan_kids_assembly.gif" alt="הסבר נלווה" class="relative rounded-3xl shadow-soft border-8 border-white w-full sm:w-4/5 max-w-md object-cover transform rotate-2 hover:rotate-0 transition-transform duration-500 z-10">
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="relative group">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-gold to-white rounded-[3rem] blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                        <img src="mishkan_kids_assembly.gif" alt="הסבר נלווה" class="relative rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-[8px] border-white/10 w-full sm:w-4/5 max-w-lg object-cover transform rotate-3 group-hover:rotate-0 transition-transform duration-700 z-10">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="operation" class="py-24 bg-slate-50 scroll-mt-20">
+    <section id="operation" class="py-24 bg-cream scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold text-primary title-accent title-accent-center">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-primary mb-6 gold-underline gold-underline-center">
                     פעילות המשכן
                 </h2>
-                <p class="mt-6 text-xl text-textMain max-w-2xl mx-auto font-light">אנו מציעים פעילות חווייתית ואטרקטיבית זו לילדים בבית הספר שלכם.</p>
+                <p class="mt-6 text-2xl text-textMuted max-w-2xl mx-auto font-medium">אנו מציעים פעילות חווייתית ואטרקטיבית זו לילדים בבית הספר שלכם.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <!-- Target Audience -->
-                <div class="bg-white rounded-3xl p-8 shadow-soft border border-gray-100 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-primary"></div>
-                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 mt-2 text-primary">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <div class="bg-white rounded-[2.5rem] p-10 shadow-soft border border-white hover:border-primarySoft hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primarySoft rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110 duration-500"></div>
+                    <div class="relative z-10 w-16 h-16 bg-white shadow-soft rounded-2xl flex items-center justify-center mb-8 text-primary">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-6">למי מיועד?</h3>
-                    <div class="space-y-4 text-textMain text-right">
-                        <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                            <strong class="text-primary block mb-1 text-lg">לילדי בית ספר יסודי</strong>
-                            <p class="text-sm">הפעילות כוללת את הרכבת דגם המשכן ע"י הילדים, משך הפעילות: כשעה (60 דקות).</p>
+                    <h3 class="relative z-10 text-3xl font-extrabold text-primary mb-8">למי מיועד?</h3>
+                    <div class="space-y-5 text-textMain text-right relative z-10 text-lg">
+                        <div class="p-5 bg-cream rounded-2xl border border-primarySoft/50 group-hover:bg-primarySoft/30 transition-colors">
+                            <strong class="text-primary block mb-2 text-xl">לילדי בית ספר יסודי</strong>
+                            <p class="text-textMuted font-medium">הפעילות כוללת את הרכבת דגם המשכן ע"י הילדים, משך הפעילות: כשעה (60 דקות).</p>
                         </div>
-                        <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                            <strong class="text-primary block mb-1 text-lg">על יסודי / צוותי מורים</strong>
-                            <p class="text-sm">ילמדו על המשכן על בסיס הדגם המורכב מראש.</p>
+                        <div class="p-5 bg-cream rounded-2xl border border-primarySoft/50 group-hover:bg-primarySoft/30 transition-colors">
+                            <strong class="text-primary block mb-2 text-xl">על יסודי / צוותי מורים</strong>
+                            <p class="text-textMuted font-medium">ילמדו על המשכן על בסיס הדגם המורכב מראש.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Timing -->
-                <div class="bg-white rounded-3xl p-8 shadow-soft border border-gray-100 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gold"></div>
-                    <div class="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6 mt-2 text-gold">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <div class="bg-white rounded-[2.5rem] p-10 shadow-soft border border-white hover:border-gold/30 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group md:-translate-y-6">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-goldSoft rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110 duration-500"></div>
+                    <div class="relative z-10 w-16 h-16 bg-white shadow-soft rounded-2xl flex items-center justify-center mb-8 text-gold">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-6">מתי?</h3>
-                    <ul class="text-textMain text-right space-y-3 list-none">
-                        <li class="flex items-start gap-3"><div class="mt-2 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></div><span>לפני לימוד פרשות המשכן, כהכנה ללימוד.</span></li>
-                        <li class="flex items-start gap-3"><div class="mt-2 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></div><span>אחרי לימוד פרשות המשכן, כסיכום ללימוד.</span></li>
-                        <li class="flex items-start gap-3"><div class="mt-2 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></div><span>באירוע סיום לימוד חומש שמות.</span></li>
-                        <li class="flex items-start gap-3"><div class="mt-2 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></div><span>בשבועות שקוראים בהם את פרשות המשכן.</span></li>
+                    <h3 class="relative z-10 text-3xl font-extrabold text-primary mb-8">מתי?</h3>
+                    <ul class="text-textMain text-right space-y-4 list-none relative z-10 text-lg font-medium">
+                        <li class="flex items-center gap-4"><div class="w-2.5 h-2.5 rounded-full bg-gold shadow-[0_0_8px_rgba(212,175,55,0.5)]"></div><span>לפני לימוד פרשות המשכן, כהכנה ללימוד.</span></li>
+                        <li class="flex items-center gap-4"><div class="w-2.5 h-2.5 rounded-full bg-gold shadow-[0_0_8px_rgba(212,175,55,0.5)]"></div><span>אחרי לימוד פרשות המשכן, כסיכום ללימוד.</span></li>
+                        <li class="flex items-center gap-4"><div class="w-2.5 h-2.5 rounded-full bg-gold shadow-[0_0_8px_rgba(212,175,55,0.5)]"></div><span>באירוע סיום לימוד חומש שמות.</span></li>
+                        <li class="flex items-center gap-4"><div class="w-2.5 h-2.5 rounded-full bg-gold shadow-[0_0_8px_rgba(212,175,55,0.5)]"></div><span>בשבועות שקוראים בהם את פרשות המשכן.</span></li>
                     </ul>
-                    <div class="mt-6 pt-5 border-t border-gray-100">
-                        <p class="font-semibold text-primary text-sm">ובכלל, ניתן לשלב את הפעילות גם בחוגים או בכיתות שלא עוסקים כרגע בנושא זה.</p>
+                    <div class="mt-8 pt-6 border-t border-creamDark relative z-10">
+                        <p class="font-bold text-primary text-lg">ובכלל, ניתן לשלב את הפעילות גם בחוגים או בכיתות שלא עוסקים כרגע בנושא זה.</p>
                     </div>
                 </div>
 
                 <!-- Participants & Logistics -->
-                <div class="bg-white rounded-3xl p-8 shadow-soft border border-gray-100 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-primary"></div>
-                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 mt-2 text-primary">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                <div class="bg-white rounded-[2.5rem] p-10 shadow-soft border border-white hover:border-primarySoft hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primarySoft rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110 duration-500"></div>
+                    <div class="relative z-10 w-16 h-16 bg-white shadow-soft rounded-2xl flex items-center justify-center mb-8 text-primary">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-6">מספר משתתפים</h3>
-                    <div class="text-textMain text-right text-sm space-y-3">
-                        <p>במשכן 48 קרשים. בהרכבת דגם המשכן, אנו מעמידים קרשים ראשונים והילדים מוסיפים 45 קרשים. כדי לאפשר לכל ילד לשים את הקרש שלו במשכן, <strong class="text-primary bg-blue-50 px-1 rounded font-bold">רצוי שישתתפו עד 45 ילדים.</strong></p>
-                        <p>כשיש הרבה משתתפים כדאי להתפצל לשתי קבוצות.</p>
+                    <h3 class="relative z-10 text-3xl font-extrabold text-primary mb-8">מספר משתתפים</h3>
+                    <div class="text-textMain text-right text-lg space-y-4 relative z-10 font-medium">
+                        <p>במשכן 48 קרשים. בהרכבת דגם המשכן אנו מעמידים קרשים ראשונים והילדים מוסיפים 45 קרשים. כדי לאפשר לכל ילד לשים את הקרש שלו במשכן, <strong class="text-primary bg-goldSoft px-2 py-0.5 rounded-lg border border-gold/20 font-extrabold shadow-sm">רצוי שישתתפו עד 45 ילדים.</strong></p>
+                        <p class="text-textMuted">כשיש הרבה משתתפים כדאי להתפצל לשתי קבוצות.</p>
                         
-                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-3 mt-4 text-right">
-                            <p><strong class="text-primary font-bold">משך הפעילות:</strong> לפחות שעה. רצוי להקצות שני שיעורים רצופים.</p>
-                            <p><strong class="text-primary font-bold">מקום הפעילות:</strong> נדרשת רחבה של 3x3 מטרים להרכבת וסיבוב הדגם.</p>
+                        <div class="bg-primary text-white p-6 rounded-2xl shadow-soft space-y-4 mt-8 text-right transform group-hover:scale-[1.02] transition-transform">
+                            <p><strong class="text-gold font-bold">משך הפעילות:</strong> לפחות שעה. רצוי להקצות שני שיעורים רצופים.</p>
+                            <p><strong class="text-gold font-bold">מקום הפעילות:</strong> נדרשת רחבה של 3x3 מטרים להרכבת וסיבוב הדגם.</p>
                         </div>
                     </div>
                 </div>
@@ -484,41 +512,42 @@
         </div>
     </section>
 
-    <section id="testimonials" class="py-24 bg-white scroll-mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold text-primary title-accent title-accent-center">
+    <section id="testimonials" class="py-24 bg-white relative scroll-mt-20">
+        <div class="absolute inset-0 bg-[radial-gradient(#eef2f6_1px,transparent_1px)] [background-size:20px_20px] opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-primary mb-6 gold-underline gold-underline-center">
                     המלצות
                 </h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <!-- Testimonial 1 -->
-                <div class="bg-gray-50 p-10 rounded-3xl border border-gray-100 relative group hover:bg-white hover:shadow-soft transition-all duration-300">
-                    <svg class="w-12 h-12 text-gold/30 absolute top-6 right-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                    <p class="text-textMain mb-8 relative z-10 text-lg leading-relaxed pt-6">
+                <div class="bg-cream p-12 rounded-[2.5rem] border border-white shadow-soft relative group hover:-translate-y-1 hover:shadow-hover transition-all duration-300">
+                    <svg class="w-16 h-16 text-gold/20 absolute top-8 right-10 transform group-hover:scale-110 transition-transform duration-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <p class="text-textMain mb-10 relative z-10 text-2xl leading-relaxed pt-8 font-medium italic">
                         "הפעילות הייתה פשוט מדהימה! הילדים חוו את החומר הנלמד בצורה מוחשית ומרתקת. הרכבת הדגם עזרה להם להבין דברים שהיה קשה להסביר בכיתה. מומלץ בחום לכל בית ספר."
                     </p>
-                    <div class="flex items-center gap-4 border-t border-gray-200 pt-6">
-                        <div class="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center text-xl font-bold text-primary shadow-sm">מ</div>
+                    <div class="flex items-center gap-5 border-t border-primarySoft/50 pt-8">
+                        <div class="w-16 h-16 bg-white border-2 border-gold/30 rounded-full flex items-center justify-center text-3xl font-bold text-primary shadow-sm">מ</div>
                         <div>
-                            <h4 class="font-bold text-primary text-lg">מנהל/ת בית ספר</h4>
-                            <span class="text-sm text-gray-500">אזור המרכז</span>
+                            <h4 class="font-extrabold text-primary text-xl">מנהל/ת בית ספר</h4>
+                            <span class="text-base text-textMuted font-medium">אזור המרכז</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Testimonial 2 -->
-                <div class="bg-gray-50 p-10 rounded-3xl border border-gray-100 relative group hover:bg-white hover:shadow-soft transition-all duration-300">
-                    <svg class="w-12 h-12 text-gold/30 absolute top-6 right-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                    <p class="text-textMain mb-8 relative z-10 text-lg leading-relaxed pt-6">
+                <div class="bg-cream p-12 rounded-[2.5rem] border border-white shadow-soft relative group hover:-translate-y-1 hover:shadow-hover transition-all duration-300 md:mt-12">
+                    <svg class="w-16 h-16 text-gold/20 absolute top-8 right-10 transform group-hover:scale-110 transition-transform duration-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <p class="text-textMain mb-10 relative z-10 text-2xl leading-relaxed pt-8 font-medium italic">
                         "חוויה בלתי נשכחת לילדים. הגישה המקצועית, ההסברים הברורים וההתלהבות של המדריך סחפו את כולם. הדגם מושקע מאוד וההקפדה על הפרטים מרשימה."
                     </p>
-                    <div class="flex items-center gap-4 border-t border-gray-200 pt-6">
-                        <div class="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center text-xl font-bold text-primary shadow-sm">ר</div>
+                    <div class="flex items-center gap-5 border-t border-primarySoft/50 pt-8">
+                        <div class="w-16 h-16 bg-white border-2 border-gold/30 rounded-full flex items-center justify-center text-3xl font-bold text-primary shadow-sm">ר</div>
                         <div>
-                            <h4 class="font-bold text-primary text-lg">רכז/ת שכבה</h4>
-                            <span class="text-sm text-gray-500">ירושלים</span>
+                            <h4 class="font-extrabold text-primary text-xl">רכז/ת שכבה</h4>
+                            <span class="text-base text-textMuted font-medium">ירושלים</span>
                         </div>
                     </div>
                 </div>
@@ -526,126 +555,133 @@
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-blue-50/50 border-t border-blue-100 scroll-mt-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-extrabold text-primary mb-6 title-accent title-accent-center">
+    <section id="contact" class="py-32 bg-cream border-t border-white scroll-mt-20 relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-30 pointer-events-none overflow-hidden">
+            <div class="absolute top-[-10%] right-[10%] w-[500px] h-[500px] rounded-full bg-primarySoft blur-3xl"></div>
+            <div class="absolute bottom-[-10%] left-[10%] w-[500px] h-[500px] rounded-full bg-goldSoft blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-primary mb-8 gold-underline gold-underline-center">
                 לתיאום והזמנות
             </h2>
-            <p class="text-xl text-textMain font-light mb-12">נשמח לעמוד לרשותכם ולענות על כל שאלה באחת מהדרכים הבאות:</p>
+            <p class="text-2xl text-textMuted font-medium mb-16">נשמח לעמוד לרשותכם ולענות על כל שאלה באחת מהדרכים הבאות:</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                <a href="tel:054-4530707" class="flex flex-col items-center justify-center p-12 bg-white rounded-3xl shadow-soft border border-gray-100 hover:border-gold hover:shadow-lg transition-all duration-300">
-                    <div class="w-20 h-20 bg-blue-50 text-primary rounded-full flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-3xl mx-auto">
+                <a href="tel:054-4530707" class="group flex flex-col items-center justify-center p-14 bg-white rounded-[3rem] shadow-soft border border-white hover:border-gold/50 hover:shadow-gold transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-24 h-24 bg-primarySoft text-primary group-hover:bg-primary group-hover:text-white rounded-3xl flex items-center justify-center mb-8 transition-colors duration-500 shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-500 mb-2">טלפון</h3>
-                    <p class="text-3xl text-primary font-extrabold tracking-wider" dir="ltr">054-4530707</p>
+                    <h3 class="text-2xl font-bold text-textMuted mb-3">חייגו אלינו</h3>
+                    <p class="text-4xl text-primary font-extrabold tracking-wider group-hover:text-gold transition-colors duration-300" dir="ltr">054-4530707</p>
                 </a>
 
-                <a href="mailto:bamishkan@gmail.com" class="flex flex-col items-center justify-center p-12 bg-white rounded-3xl shadow-soft border border-gray-100 hover:border-gold hover:shadow-lg transition-all duration-300">
-                    <div class="w-20 h-20 bg-amber-50 text-gold rounded-full flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                <a href="mailto:bamishkan@gmail.com" class="group flex flex-col items-center justify-center p-14 bg-white rounded-[3rem] shadow-soft border border-white hover:border-gold/50 hover:shadow-gold transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-24 h-24 bg-goldSoft text-gold group-hover:bg-gold group-hover:text-white rounded-3xl flex items-center justify-center mb-8 transition-colors duration-500 shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-500 mb-2">דוא"ל</h3>
-                    <p class="text-2xl text-primary font-bold">bamishkan@gmail.com</p>
+                    <h3 class="text-2xl font-bold text-textMuted mb-3">כתבו לנו</h3>
+                    <p class="text-3xl text-primary font-extrabold group-hover:text-gold transition-colors duration-300">bamishkan@gmail.com</p>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Fully light footer -->
-    <footer class="bg-white text-textMain py-10 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-3">
-                 <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-                <span class="text-xl font-bold text-primary">לגעת במשכן</span>
+    <footer class="bg-white text-primary py-12 border-t border-primarySoft">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-primarySoft rounded-xl flex items-center justify-center border border-white shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                </div>
+                <span class="text-2xl font-extrabold text-primary">לגעת במשכן</span>
             </div>
             
-            <div class="flex flex-col items-center md:items-end gap-1">
-                <p class="text-gray-500 text-sm">
+            <div class="flex flex-col items-center md:items-end gap-2">
+                <p class="text-textMuted text-base font-medium">
                     © כל הזכויות שמורות ללגעת במשכן - פעילות של לימוד חוויתי.
                 </p>
-                <button type="button" onclick="openPrivacyModal()" class="text-primary font-medium hover:text-gold text-sm transition-colors cursor-pointer bg-transparent border-none p-0 underline decoration-gray-300 hover:decoration-gold">
+                <button type="button" onclick="openPrivacyModal()" class="text-primary font-bold hover:text-gold text-base transition-colors cursor-pointer bg-transparent border-none p-0 underline decoration-primary/20 hover:decoration-gold">
                     מדיניות פרטיות
                 </button>
             </div>
         </div>
     </footer>
 
+    <!-- Privacy Modal (No Gray/Black) -->
     <div id="privacy-modal" class="hidden fixed inset-0 z-[100] overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             
-            <!-- Light overlay -->
-            <div class="fixed inset-0 bg-slate-900/20 backdrop-blur-sm transition-opacity" aria-hidden="true" onclick="closePrivacyModal()"></div>
+            <!-- Glassmorphism overlay -->
+            <div class="fixed inset-0 bg-primary/20 backdrop-blur-sm transition-opacity" aria-hidden="true" onclick="closePrivacyModal()"></div>
 
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
             
-            <div class="inline-block align-bottom bg-white rounded-3xl text-right overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full border border-gray-100 relative">
+            <div class="inline-block align-bottom bg-cream rounded-[2.5rem] text-right overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full border-4 border-white relative">
                 
-                <button type="button" onclick="closePrivacyModal()" class="absolute top-6 left-6 text-gray-400 hover:text-primary bg-gray-50 hover:bg-gray-100 rounded-full p-2 transition-colors focus:outline-none">
+                <button type="button" onclick="closePrivacyModal()" class="absolute top-8 left-8 text-textMuted hover:text-primary bg-white hover:bg-primarySoft shadow-sm rounded-full p-3 transition-colors focus:outline-none z-10">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
 
-                <div class="bg-white px-6 pt-10 pb-6 sm:px-10 sm:pt-12 sm:pb-8">
-                    <h3 class="text-3xl font-extrabold text-primary mb-8 text-center title-accent title-accent-center" id="modal-title">מדיניות פרטיות</h3>
+                <div class="bg-cream px-8 pt-14 pb-8 sm:px-14 sm:pt-16 sm:pb-10 relative">
+                    <h3 class="text-4xl font-extrabold text-primary mb-10 text-center gold-underline gold-underline-center" id="modal-title">מדיניות פרטיות</h3>
                     
-                    <div class="mt-8 text-textMain text-sm h-[50vh] overflow-y-auto pl-4 modal-scrollbar space-y-6 leading-relaxed">
+                    <div class="mt-8 text-textMain text-lg h-[60vh] overflow-y-auto pl-6 modal-scrollbar space-y-8 leading-relaxed font-medium">
                         
-                        <p class="bg-blue-50/50 border border-blue-100 p-3 rounded-lg inline-block text-primary font-medium"><strong>עודכן לאחרונה:</strong> אוקטובר 2026</p>
+                        <p class="bg-primary/5 border border-primarySoft p-4 rounded-2xl inline-block text-primary font-bold shadow-sm">עודכן לאחרונה: אוקטובר 2026</p>
                         
                         <p>אנו ב"לגעת במשכן" (להלן: "האתר" או "הנהלת האתר") מכבדים את פרטיותם של המשתמשים הנכנסים לאתר ו/או המשתמשים בשירותים המוצעים בו. מטרת מסמך זה הינה לפרט את הנהלים ביחס לפרטיות המשתמשים, ולתאר את האופן שבו אנו אוספים, משתמשים ושומרים את המידע הנמסר לנו על ידך או הנאסף על ידנו בעת השימוש באתר, בהתאם להוראות חוק הגנת הפרטיות, התשמ"א-1981.</p>
                         
-                        <h4 class="font-bold text-xl text-primary border-b border-gray-100 pb-2">1. איסוף מידע</h4>
+                        <h4 class="font-extrabold text-2xl text-primary border-b-2 border-gold/30 pb-3 inline-block">1. איסוף מידע</h4>
                         <p><strong>מידע שנמסר באופן יזום:</strong> בעת יצירת קשר עם הנהלת האתר (דרך טלפון, דוא"ל או טפסי צור קשר ככל שישנם), אתה עשוי למסור לנו מידע אישי מזהה כגון: שם מלא, מספר טלפון, כתובת דואר אלקטרוני, ושם המוסד/בית הספר אותו אתה מייצג. מסירת המידע אינה מחויבת על פי חוק, אך בלעדיו ייתכן שלא נוכל לחזור אליך או לספק את השירות המבוקש.</p>
                         <p><strong>מידע הנאסף באופן אוטומטי:</strong> בעת הגלישה באתר, ייתכן וייאסף מידע טכני וסטטיסטי שאינו מזהה אותך אישית, כגון: סוג הדפדפן, כתובת ה-IP, זמן השהות באתר, העמודים שבהם ביקרת, מערכת ההפעלה וכדומה.</p>
 
-                        <h4 class="font-bold text-xl text-primary border-b border-gray-100 pb-2">2. מטרות השימוש במידע</h4>
+                        <h4 class="font-extrabold text-2xl text-primary border-b-2 border-gold/30 pb-3 inline-block">2. מטרות השימוש במידע</h4>
                         <p>המידע שייאסף יישמר במאגרי המידע של הנהלת האתר וישמש למטרות הבאות:</p>
-                        <ul class="list-none space-y-2 pr-2">
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0"></div><span>יצירת קשר עמך לשם מתן מענה לשאלותיך, תיאום פעילויות והרצאות.</span></li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0"></div><span>מתן שירות לקוחות ותמיכה.</span></li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0"></div><span>שיפור, העשרה והתאמת התכנים והשירותים המוצעים באתר.</span></li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0"></div><span>ניתוח מידע סטטיסטי ומסירתו לצדדים שלישיים (מידע זה לא יזהה אותך אישית).</span></li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0"></div><span>לכל מטרה אחרת המפורטת במדיניות פרטיות זו או בתנאי השימוש של האתר.</span></li>
+                        <ul class="list-none space-y-4 pr-2">
+                            <li class="flex items-start gap-4"><div class="w-2.5 h-2.5 rounded-full bg-gold mt-2.5 flex-shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.5)]"></div><span>יצירת קשר עמך לשם מתן מענה לשאלותיך, תיאום פעילויות והרצאות.</span></li>
+                            <li class="flex items-start gap-4"><div class="w-2.5 h-2.5 rounded-full bg-gold mt-2.5 flex-shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.5)]"></div><span>מתן שירות לקוחות ותמיכה.</span></li>
+                            <li class="flex items-start gap-4"><div class="w-2.5 h-2.5 rounded-full bg-gold mt-2.5 flex-shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.5)]"></div><span>שיפור, העשרה והתאמת התכנים והשירותים המוצעים באתר.</span></li>
+                            <li class="flex items-start gap-4"><div class="w-2.5 h-2.5 rounded-full bg-gold mt-2.5 flex-shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.5)]"></div><span>ניתוח מידע סטטיסטי ומסירתו לצדדים שלישיים (מידע זה לא יזהה אותך אישית).</span></li>
+                            <li class="flex items-start gap-4"><div class="w-2.5 h-2.5 rounded-full bg-gold mt-2.5 flex-shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.5)]"></div><span>לכל מטרה אחרת המפורטת במדיניות פרטיות זו או בתנאי השימוש של האתר.</span></li>
                         </ul>
 
-                        <h4 class="font-bold text-xl text-primary border-b border-gray-100 pb-2">3. מסירת מידע לצד שלישי</h4>
+                        <h4 class="font-extrabold text-2xl text-primary border-b-2 border-gold/30 pb-3 inline-block">3. מסירת מידע לצד שלישי</h4>
                         <p>הנהלת האתר מתחייבת לא למכור, להשכיר או להעביר את המידע האישי שלך לצדדים שלישיים, למעט במקרים הבאים:</p>
-                        <ul class="list-none space-y-2 pr-2">
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0"></div><span>כאשר התקבלה הסכמתך המפורשת לכך.</span></li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0"></div><span>לצורך מתן השירות המבוקש על ידך (למשל, העברת פרטים למדריך הפעילות).</span></li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0"></div><span>במקרה של מחלוקת משפטית, טענה, תביעה או הליכים משפטיים בינך לבין הנהלת האתר.</span></li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0"></div><span>במקרה שבו יינתן צו שיפוטי המורה למסור את פרטיך לצד שלישי.</span></li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0"></div><span>על פי כל דין חל.</span></li>
+                        <ul class="list-none space-y-4 pr-2">
+                            <li class="flex items-start gap-4"><div class="w-2.5 h-2.5 rounded-full bg-gold mt-2.5 flex-shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.5)]"></div><span>כאשר התקבלה הסכמתך המפורשת לכך.</span></li>
+                            <li class="flex items-start gap-4"><div class="w-2.5 h-2.5 rounded-full bg-gold mt-2.5 flex-shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.5)]"></div><span>לצורך מתן השירות המבוקש על ידך (למשל, העברת פרטים למדריך הפעילות).</span></li>
+                            <li class="flex items-start gap-4"><div class="w-2.5 h-2.5 rounded-full bg-gold mt-2.5 flex-shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.5)]"></div><span>במקרה של מחלוקת משפטית, טענה, תביעה או הליכים משפטיים בינך לבין הנהלת האתר.</span></li>
+                            <li class="flex items-start gap-4"><div class="w-2.5 h-2.5 rounded-full bg-gold mt-2.5 flex-shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.5)]"></div><span>במקרה שבו יינתן צו שיפוטי המורה למסור את פרטיך לצד שלישי.</span></li>
+                            <li class="flex items-start gap-4"><div class="w-2.5 h-2.5 rounded-full bg-gold mt-2.5 flex-shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.5)]"></div><span>על פי כל דין חל.</span></li>
                         </ul>
 
-                        <h4 class="font-bold text-xl text-primary border-b border-gray-100 pb-2">4. קוקיז (Cookies) וכלי ניתוח</h4>
+                        <h4 class="font-extrabold text-2xl text-primary border-b-2 border-gold/30 pb-3 inline-block">4. קוקיז (Cookies) וכלי ניתוח</h4>
                         <p>האתר עשוי להשתמש ב"עוגיות" (Cookies) לצורך תפעולו השוטף והתקין, ובכלל זה כדי לאסוף נתונים סטטיסטיים אודות השימוש באתר, לאימות פרטים, ולהתאמת האתר להעדפותיך האישיות. באפשרותך להימנע מקבלת עוגיות על ידי שינוי ההגדרות בדפדפן שלך, אולם ייתכן כי חסימת העוגיות תפגע בחוויית הגלישה שלך בחלקים מסוימים של האתר.</p>
 
-                        <h4 class="font-bold text-xl text-primary border-b border-gray-100 pb-2">5. אבטחת מידע</h4>
+                        <h4 class="font-extrabold text-2xl text-primary border-b-2 border-gold/30 pb-3 inline-block">5. אבטחת מידע</h4>
                         <p>הנהלת האתר מיישמת מערכות ונהלים עדכניים לאבטחת מידע. בעוד שמערכות ונהלים אלה מצמצמים את הסיכונים לחדירה בלתי-מורשית, אין הם מעניקים ביטחון מוחלט. לכן, הנהלת האתר אינה מתחייבת שהאתר יהיה חסין באופן מוחלט מפני גישה בלתי-מורשית למידע המאוחסן בו.</p>
 
-                        <h4 class="font-bold text-xl text-primary border-b border-gray-100 pb-2">6. זכויות המשתמש (עיון, תיקון ומחיקה)</h4>
-                        <p>על פי חוק הגנת הפרטיות, התשמ"א-1981, כל אדם זכאי לעיין במידע שעליו המוחזק במאגר מידע. במידה ומצאת כי המידע אודותיך אינו נכון, שלם, ברור או מעודכן, הנך רשאי לפנות אלינו בבקשה לתקן את המידע או למוחקו. ניתן לעשות זאת באמצעות פנייה לדואר האלקטרוני: <strong class="text-primary">bamishkan@gmail.com</strong>.</p>
+                        <h4 class="font-extrabold text-2xl text-primary border-b-2 border-gold/30 pb-3 inline-block">6. זכויות המשתמש (עיון, תיקון ומחיקה)</h4>
+                        <p>על פי חוק הגנת הפרטיות, התשמ"א-1981, כל אדם זכאי לעיין במידע שעליו המוחזק במאגר מידע. במידה ומצאת כי המידע אודותיך אינו נכון, שלם, ברור או מעודכן, הנך רשאי לפנות אלינו בבקשה לתקן את המידע או למוחקו. ניתן לעשות זאת באמצעות פנייה לדואר האלקטרוני: <strong class="text-primary font-bold">bamishkan@gmail.com</strong>.</p>
 
-                        <h4 class="font-bold text-xl text-primary border-b border-gray-100 pb-2">7. שינויים במדיניות הפרטיות</h4>
+                        <h4 class="font-extrabold text-2xl text-primary border-b-2 border-gold/30 pb-3 inline-block">7. שינויים במדיניות הפרטיות</h4>
                         <p>הנהלת האתר שומרת לעצמה את הזכות לשנות ולעדכן את מדיניות הפרטיות מעת לעת, על פי שיקול דעתה הבלעדי. כל שינוי מהותי יפורסם בעמוד זה, והשימוש המתמשך באתר לאחר מכן יהווה את הסכמתך לשינויים.</p>
 
-                        <h4 class="font-bold text-xl text-primary border-b border-gray-100 pb-2">8. יצירת קשר</h4>
-                        <p>לכל שאלה או הבהרה בנוגע למדיניות פרטיות זו, ניתן לפנות אלינו בטלפון: 054-4530707 או בדוא"ל: bamishkan@gmail.com, ונשמח לעמוד לרשותך.</p>
+                        <h4 class="font-extrabold text-2xl text-primary border-b-2 border-gold/30 pb-3 inline-block">8. יצירת קשר</h4>
+                        <p>לכל שאלה או הבהרה בנוגע למדיניות פרטיות זו, ניתן לפנות אלינו בטלפון: <span dir="ltr" class="font-bold">054-4530707</span> או בדוא"ל: <span class="font-bold">bamishkan@gmail.com</span>, ונשמח לעמוד לרשותך.</p>
                         
                     </div>
                 </div>
-                <div class="bg-gray-50 px-6 py-6 sm:px-10 flex justify-center border-t border-gray-200">
-                    <button type="button" class="w-full sm:w-auto inline-flex justify-center rounded-full shadow-sm px-12 py-3 bg-white border border-gray-300 text-lg font-bold text-primary hover:bg-gray-50 hover:border-gray-400 focus:outline-none transition-colors duration-300" onclick="closePrivacyModal()">
+                <div class="bg-white px-8 py-8 sm:px-14 flex justify-center border-t border-primarySoft rounded-b-[2.5rem]">
+                    <button type="button" class="w-full sm:w-auto inline-flex justify-center rounded-full shadow-soft px-16 py-4 bg-primary text-xl font-extrabold text-white hover:bg-primaryLight hover:shadow-hover focus:outline-none transition-all duration-300 transform hover:-translate-y-1" onclick="closePrivacyModal()">
                         הבנתי, סגור
                     </button>
                 </div>
@@ -680,7 +716,7 @@
                 });
             });
 
-            // Image Slider Logic
+            // Image Slider Logic - Elegant Fade
             const slides = [
                 document.getElementById('vision-slide-1'),
                 document.getElementById('vision-slide-2'),
@@ -694,7 +730,7 @@
                     slides[currentSlide].classList.replace('opacity-100', 'opacity-0');
                     currentSlide = (currentSlide + 1) % slides.length;
                     slides[currentSlide].classList.replace('opacity-0', 'opacity-100');
-                }, 3500); 
+                }, 4000); 
             }
             
             // Close modal on Escape key
@@ -704,15 +740,15 @@
                 }
             });
             
-            // Navbar subtle drop-shadow on scroll
+            // Navbar blur & shadow effect on scroll
             const navbar = document.querySelector('nav');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 10) {
-                    navbar.classList.add('shadow-[0_4px_20px_-5px_rgba(0,0,0,0.1)]');
-                    navbar.classList.remove('shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05)]');
+                    navbar.classList.add('bg-white/90', 'shadow-[0_10px_30px_rgba(30,58,95,0.08)]');
+                    navbar.classList.remove('bg-white/70', 'shadow-[0_4px_30px_rgba(30,58,95,0.05)]');
                 } else {
-                    navbar.classList.remove('shadow-[0_4px_20px_-5px_rgba(0,0,0,0.1)]');
-                    navbar.classList.add('shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05)]');
+                    navbar.classList.remove('bg-white/90', 'shadow-[0_10px_30px_rgba(30,58,95,0.08)]');
+                    navbar.classList.add('bg-white/70', 'shadow-[0_4px_30px_rgba(30,58,95,0.05)]');
                 }
             });
         });
