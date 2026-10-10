@@ -58,7 +58,6 @@
                     <a href="#activity" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">תוכן הפעילות</a>
                     <a href="#explanation" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">הסבר נלווה</a>
                     <a href="#operation" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">פעילות המשכן</a>
-                    <a href="#gallery" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">תמונות</a>
                     <a href="#testimonials" class="text-gray-700 hover:text-primary hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-semibold transition-colors">המלצות</a>
                     <a href="#contact" class="bg-primary text-white hover:bg-gold px-4 py-2 rounded-md text-sm font-semibold transition-colors mr-2">צור קשר</a>
                 </div>
@@ -75,7 +74,7 @@
         </div>
 
         <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full z-40">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#home" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">דף הבית</a>
                 <a href="#vision" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">מראה עיניים</a>
@@ -83,7 +82,6 @@
                 <a href="#activity" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">תוכן הפעילות</a>
                 <a href="#explanation" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">הסבר נלווה</a>
                 <a href="#operation" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">פעילות המשכן</a>
-                <a href="#gallery" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">תמונות</a>
                 <a href="#testimonials" class="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">המלצות</a>
                 <a href="#contact" class="block text-primary font-bold hover:bg-gray-50 px-3 py-2 rounded-md text-base">צור קשר</a>
             </div>
@@ -102,7 +100,7 @@
             <p class="mt-4 max-w-3xl mx-auto text-xl md:text-2xl text-gray-200 leading-relaxed drop-shadow">
                 ב"לגעת במשכן" אנחנו מציעים פעילויות והרצאות לבתי ספר וקהילות, באמצעות בניית דגם המשכן ע"י הילדים והכנסת כלי הקודש לדגם - חוויה לימודית חיה ומוחשית.
             </p>
-            <div class="mt-10 flex justify-center gap-4">
+            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
                 <a href="#contact" class="px-8 py-3 bg-gold text-primary font-bold rounded-full text-lg shadow-lg hover:bg-white transition duration-300">הזמינו פעילות עכשיו</a>
                 <a href="#activity" class="px-8 py-3 bg-transparent border-2 border-white text-white font-bold rounded-full text-lg shadow-lg hover:bg-white hover:text-primary transition duration-300">למידע נוסף</a>
             </div>
@@ -129,27 +127,29 @@
                         </p>
                     </div>
                 </div>
-                <!-- תחילת החלק המתוקן: הוספת מיכל לאפקט ההתחלפות -->
-               <div class="mt-10 lg:mt-0 relative rounded-xl shadow-2xl border-4 border-gray-100 overflow-hidden">
-    <!-- שקופית 1 -->
-    <img id="vision-slide-1" 
-         src="mishkan_building.gif" 
-         alt="ילדים מרכיבים את המשכן" 
-         class="w-full object-cover transition-opacity duration-1000 opacity-100">
+                
+                <!-- תחילת החלק המתוקן: הוספת מיכל לאפקט ההתחלפות - מוקטן מעט -->
+                <div class="mt-10 lg:mt-0 relative rounded-xl shadow-2xl border-4 border-gray-100 overflow-hidden w-11/12 md:w-5/6 lg:w-10/12 mx-auto aspect-[4/3] bg-gray-50 flex items-center justify-center">
+                    <!-- שקופית 1 -->
+                    <img id="vision-slide-1" 
+                         src="mishkan_building.gif" 
+                         alt="ילדים מרכיבים את המשכן" 
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
 
-    <!-- שקופית 2 -->
-    <img id="vision-slide-2" 
-         src="mishkan_model.gif" 
-         alt="דגם המשכן מורכב" 
-         class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                    <!-- שקופית 2 -->
+                    <img id="vision-slide-2" 
+                         src="mishkan_model.gif" 
+                         alt="דגם המשכן מורכב" 
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
 
-    <!-- שקופית 3 -->
-    <img id="vision-slide-3" 
-         src="mizbeach_with_ramp_hq.gif" 
-         alt="מזבח הנחושת עם כבש" 
-         class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-</div>
+                    <!-- שקופית 3 -->
+                    <img id="vision-slide-3" 
+                         src="mizbeach_with_ramp_hq.gif" 
+                         alt="מזבח הנחושת עם כבש" 
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                </div>
                 <!-- סוף החלק המתוקן -->
+                
             </div>
         </div>
     </section>
@@ -213,9 +213,6 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="mt-12 text-center">
-            </div>
         </div>
     </section>
 
@@ -244,7 +241,8 @@
                 <!-- Activity part 2 -->
                 <div class="flex flex-col md:flex-row-reverse gap-8 items-center bg-gray-50 rounded-2xl p-6 md:p-8 shadow-sm">
                     <div class="md:w-1/3">
-<img src="mishkan_assembly_steps.gif" alt="הרכבת הדגם" class="rounded-xl shadow-md w-5/6 object-cover">                    </div>
+                        <img src="mishkan_assembly_steps.gif" alt="הרכבת הדגם" class="rounded-xl shadow-md w-full md:w-5/6 mx-auto object-cover">
+                    </div>
                     <div class="md:w-2/3">
                         <h3 class="text-2xl font-bold text-primary mb-3">הרכבת הדגם</h3>
                         <p class="text-gray-600 mb-4">במהלך הפעילות כל ילד לוקח קרש מקרשי המשכן:</p>
@@ -297,10 +295,11 @@
                             <li>הצבת כל אחד מהכלים במקומו בתוך הדגם.</li>
                             <li>השוואה בין שני המזבחות: שמותם, שימושם, מיקומם ומימדיהם (לפי השיטות השונות).</li>
                         </ul>
-                    </div>
-  <div class="mt-6">
-                            <img src="kelei_hamishkan.gif" alt="מזבח הנחושת" class="rounded-lg shadow-sm w-1/2">
+                        <div class="mt-6 flex justify-center">
+                            <img src="kelei_hamishkan.gif" alt="כלי המשכן" class="rounded-lg shadow-sm w-3/4 md:w-1/2">
                         </div>
+                    </div>
+
                     <!-- Activity part 5 -->
                     <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:border-gold transition-colors">
                         <h3 class="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
@@ -340,8 +339,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="mt-10 lg:mt-0 lg:w-1/2">
-<img src="mishkan_kids_assembly.gif" alt="הסבר נלווה" class="rounded-xl shadow-2xl border-4 border-white/20 w-2/3 max-w-sm object-cover rotate-2 hover:rotate-0 transition-transform duration-300">                </div>
+                <div class="mt-10 lg:mt-0 lg:w-1/2 flex justify-center">
+                    <img src="mishkan_kids_assembly.gif" alt="הסבר נלווה" class="rounded-xl shadow-2xl border-4 border-white/20 w-full sm:w-2/3 max-w-sm object-cover rotate-2 hover:rotate-0 transition-transform duration-300">
+                </div>
             </div>
         </div>
     </section>
@@ -400,28 +400,6 @@
         </div>
     </section>
 
-    
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-white scroll-mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-extrabold text-primary mb-12 text-center relative inline-block">
-                תמונות
-                <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gold rounded"></span>
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Placeholders for images -->
-                <img src="https://placehold.co/600x400/1a365d/ffffff?text=תמונה+1" alt="גלריה" class="rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer w-full h-48 object-cover">
-                <img src="https://placehold.co/600x400/d4af37/ffffff?text=תמונה+2" alt="גלריה" class="rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer w-full h-48 object-cover">
-                <img src="https://placehold.co/600x400/1a365d/ffffff?text=תמונה+3" alt="גלריה" class="rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer w-full h-48 object-cover">
-                <img src="https://placehold.co/600x400/d4af37/ffffff?text=תמונה+4" alt="גלריה" class="rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer w-full h-48 object-cover">
-                <img src="https://placehold.co/600x400/d4af37/ffffff?text=תמונה+5" alt="גלריה" class="rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer w-full h-48 object-cover">
-                <img src="https://placehold.co/600x400/1a365d/ffffff?text=תמונה+6" alt="גלריה" class="rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer w-full h-48 object-cover">
-                <img src="https://placehold.co/600x400/d4af37/ffffff?text=תמונה+7" alt="גלריה" class="rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer w-full h-48 object-cover hidden md:block">
-                <img src="https://placehold.co/600x400/1a365d/ffffff?text=תמונה+8" alt="גלריה" class="rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer w-full h-48 object-cover hidden md:block">
-            </div>
-        </div>
-    </section>
-
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-20 bg-blue-50 scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -463,7 +441,6 @@
         </div>
     </section>
 
-    <!-- התחלת השינוי - החלק החדש של צור קשר -->
     <section id="contact" class="py-24 bg-white scroll-mt-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -501,7 +478,6 @@
             </div>
         </div>
     </section>
-    <!-- סיום השינוי -->
 
     <!-- Footer -->
     <footer class="bg-primary text-white py-8 border-t-4 border-gold">
@@ -537,22 +513,26 @@
             });
 
             // תחילת הקוד שמחליף בין התמונות באפקט
-            const slide1 = document.getElementById('vision-slide-1');
-            const slide2 = document.getElementById('vision-slide-2');
-            let showFirst = true;
+            // עודכן כדי לתמוך ב-3 תמונות (או יותר) בצורה חלקה
+            const slides = [
+                document.getElementById('vision-slide-1'),
+                document.getElementById('vision-slide-2'),
+                document.getElementById('vision-slide-3')
+            ].filter(Boolean); // מוודא שהאלמנטים אכן קיימים
 
-            if (slide1 && slide2) {
-                // מתחלף אוטומטית כל 3 שניות (3000 מילישניות)
+            if (slides.length > 0) {
+                let currentSlide = 0;
+                
                 setInterval(() => {
-                    if (showFirst) {
-                        slide1.classList.replace('opacity-100', 'opacity-0');
-                        slide2.classList.replace('opacity-0', 'opacity-100');
-                    } else {
-                        slide1.classList.replace('opacity-0', 'opacity-100');
-                        slide2.classList.replace('opacity-100', 'opacity-0');
-                    }
-                    showFirst = !showFirst;
-                }, 3000); 
+                    // הסתר את התמונה הנוכחית
+                    slides[currentSlide].classList.replace('opacity-100', 'opacity-0');
+                    
+                    // קדם את האינדקס לתמונה הבאה (וחזור להתחלה אם הגענו לסוף)
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    
+                    // הצג את התמונה החדשה
+                    slides[currentSlide].classList.replace('opacity-0', 'opacity-100');
+                }, 3000); // מתחלף כל 3 שניות
             }
             // סוף קוד אפקט התמונות
         });
